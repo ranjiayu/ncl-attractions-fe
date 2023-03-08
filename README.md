@@ -1,5 +1,12 @@
 # ncl-attractions-fe
 
+## How to run
+
+```
+npm install
+npm start
+```
+
 ## Coding standard
 
 * Use 2 spaces instead of tab
@@ -9,6 +16,7 @@
 
 ## Tree
 
+```
 ├── README.md
 ├── package-lock.json (dependency version controller)
 ├── package.json (dependency configuration)
@@ -26,3 +34,4 @@
     ├── index.js (The entrance file)
     ├── reportWebVitals.js
     └── setupTests.js
+```
