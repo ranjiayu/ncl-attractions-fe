@@ -1,3 +1,11 @@
+/*
+ * @Author: Jiayu Ran
+ * @Date: 2023-03-08 16:10:09
+ * @LastEditors: Jiayu Ran
+ * @LastEditTime: 2023-03-10 19:52:11
+ * @Description: Entrance of js of the webpage
+ */
+
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import HomeIndex from './components/Home/Index';
@@ -6,19 +14,23 @@ import DetailIndex from './components/Detail/Index';
 import {createHashRouter, RouterProvider} from 'react-router-dom';
 import reportWebVitals from './reportWebVitals';
 
+// import common css
+import './styles/common.css';
+
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
+// Define the route
 const router = createHashRouter([
   {
     path: '/',
     element: <HomeIndex />
   },
   {
-    path: '/result',
+    path: '/result/:placeID',
     element: <ResultIndex />
   },
   {
-    path: '/place',
+    path: '/place/:id',
     element: <DetailIndex />
   },
 ]);
