@@ -1,0 +1,32 @@
+.resultIndex {
+  margin-top: 5px;
+}
+
+.placeContainer {
+  background: #FFFFFF;
+  margin-top: 10px;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+  /* padding: 18px; */
+}
+
+.functionContainer {
+  display: flex;
+  justify-content: flex-start;
+  padding: 9px 20px;
+}
+
+.functionContainer > .badge {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 90px;
+  height: 34px;
+  border-radius: 100px;
+  background: #63ACF0CC;
+  color: #FFFFFF;
+  font-size: 20px;
+  line-height: 24px;
+  margin-right: 12px;
+  cursor: pointer;
+}

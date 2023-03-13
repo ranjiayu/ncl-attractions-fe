@@ -1,0 +1,43 @@
+.placeItem {
+  display: flex;
+  justify-content: flex-start;
+  padding: 10px 18px;
+  border-bottom: 1px solid #99C7EF;
+}
+
+.placeItem .placeItemImg {
+  flex: 0 0 147px;
+  width: 147px;
+  height: 112px;
+  border-radius: 10px;
+}
+
+.placeItemInfo {
+  margin-left: 20px;
+}
+
+.placeItemInfo > .placeTitle {
+  font-size: 20px;
+  line-height: 24px;
+  font-weight: 600;
+}
+
+.placeItemInfo > .placeMile {
+  width: 58px;
+  height: 21px;
+  background: #63ACF0;
+  border-radius: 100px;
+  color: #FFFFFF;
+  font-size: 12px;
+  margin-top: 37px;
+}
+
+.placeMile > p {
+  text-align: center;
+  line-height: 21px;
+}
+
+.placeItemInfo > .placeType {
+  font-size: 12px;
+  color: #888686;
+}
