@@ -2,7 +2,7 @@
  * @Author: Jiayu Ran
  * @Date: 2023-03-08 16:10:09
  * @LastEditors: Jiayu Ran
- * @LastEditTime: 2023-03-10 20:01:01
+ * @LastEditTime: 2023-03-16 16:28:54
  * @Description: Description
 -->
 # ncl-attractions-fe
@@ -24,7 +24,6 @@ npm start
 
 * Use 2 spaces instead of tab
 * The first letter of the component file and function name must be capitalized
-* Use single quotes for strings. "some string" -> 'some string'
 * Each sentence must end with a semicolon
 
 ## File tree

@@ -5,5 +5,59 @@
 }
 
 body {
-  background: rgba(119, 183, 238, 0.3);
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+.center-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Button */
+
+.button {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  min-width: 90px;
+  border-radius: 100px;
+  background: #b3b3b3;
+  color: #FFFFFF;
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 24px;
+  padding: 5px;
+  cursor: pointer;
+  outline: none;
+  border: none;
+}
+
+.button-primary {
+  background: #63ACF0CC;
+}
+
+.button-default {
+  background: #b3b3b3;
+}
+
+/* Header */
+
+.header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.header img {
+  width: 57px;
+  height: 43px;
+}
+
+.header span {
+  font-size: 16px;
+  font-weight: 700;
+  color: #FF5E03;
+  line-height: 19px;
 }

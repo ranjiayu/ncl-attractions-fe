@@ -1,0 +1,24 @@
+.filter-all {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  height: 0;
+  height: 100vh;
+  width: 100vw;
+  background: rgba(160, 160, 160, .6);
+}
+
+.filter-select-box {
+  background: #FFFFFF;
+  height: 485px;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: 100vw;
+  box-shadow: 0px -4px 4px rgba(0, 0, 0, 0.25);
+  border-top-right-radius: 20px;
+  border-top-left-radius: 20px;
+  padding: 18px;
+}

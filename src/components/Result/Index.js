@@ -2,21 +2,24 @@
  * @Author: Jiayu Ran
  * @Date: 2023-03-08 16:29:10
  * @LastEditors: Jiayu Ran
- * @LastEditTime: 2023-03-13 22:51:33
+ * @LastEditTime: 2023-03-16 13:11:49
  * @Description: Result index page
  */
 
 import SearchBox from '../Home/SearchBox';
 import List from './List';
 import Map from './Map';
-import "../../styles/Result/Index.css";
+import Filter from './Filter';
+import Button from '../Common/Button';
 import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { FaMapMarkedAlt, FaFilter } from 'react-icons/fa';
+import "../../styles/Result/Index.css";
 
 function ResultIndex() {
   // const [center, setCenter] = useState(null);
   const { placeID } = useParams();
+  const [showFilter, setShowFilter] = useState(false);
 
   // useEffect(() => {
   //   setDefaultLocation();
@@ -34,27 +37,48 @@ function ResultIndex() {
     console.log("show Map component.");
   }
 
+  function handleShowFilter() {
+    console.log("show filter");
+    setShowFilter(true);
+  }
+
+  function closeFilter() {
+    setShowFilter(false);
+  }
+
 
   return (
     <div className="resultIndex">
-      <SearchBox name={placeID}/>
+      <div style={{padding: '5px', background: '#d7e9fb'}}>
+        <SearchBox name={placeID}/>
+      </div>
 
       {/* <Map center={center}  /> */}
       <div className="placeContainer">
 
         <div className="functionContainer">
-          <div className="badge" onClick={handleShowMap}>
+
+          <Button type="primary">
             <FaMapMarkedAlt />
             <span>Map</span>
-          </div>
-          <div className="badge">
+          </Button>
+
+          <Button type="primary" onClick={handleShowFilter}>
             <FaFilter />
             <span>Filter</span>
-          </div>
+          </Button>
+
         </div>
 
         <List />
+
+        <Filter isShow={showFilter} callback={closeFilter} />
+
       </div>
+
+      
+
+
     </div>
   );
 }
