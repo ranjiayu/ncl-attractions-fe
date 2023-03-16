@@ -2,8 +2,8 @@
  * @Author: Jiayu Ran
  * @Date: 2023-03-16 12:51:46
  * @LastEditors: Jiayu Ran
- * @LastEditTime: 2023-03-16 15:35:02
- * @Description: Description
+ * @LastEditTime: 2023-03-16 18:39:37
+ * @Description: The every place item of dropdown menu.
  */
 
 function DropdownItem(props) {

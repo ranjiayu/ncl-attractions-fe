@@ -2,7 +2,7 @@
  * @Author: Jiayu Ran
  * @Date: 2023-03-16 12:51:46
  * @LastEditors: Jiayu Ran
- * @LastEditTime: 2023-03-16 16:40:37
+ * @LastEditTime: 2023-03-16 18:38:24
  * @Description: Description
  */
 import DropdownItem from "./DropdownItem";
@@ -17,23 +17,53 @@ function Dropdown(props) {
   const [placeList, setPlaceList] = useState([]);
   // 1500 meters default
   const radius = 1500;
-  const latitude = props.position.coords.latitude;
-  const longtitude = props.position.coords.longtitude;
+  let latitude = 0;
+  let longitude = 0;
+  if (props.position.coords) {
+    console.log(props.position.coords);
+    latitude = props.position.coords.latitude;
+    longitude = props.position.coords.longitude;
+  }
+
+  function processPredictionsData(predictionsList) {
+    let result = [];
+    for (let i = 0; i < predictionsList.length; i ++) {
+      let tempPlace = {
+        'placeID': predictionsList[i].place_id,
+        'reference': predictionsList[i].reference,
+        'name': predictionsList[i].structured_formatting.main_text,
+        'type': predictionsList[i].types[0]
+      };
+      result.push(tempPlace);
+    }
+    setPlaceList(result);
+  }
 
   function getAutoCompleteData() {
-    let params = `?input=${placeName}&radius=${radius}&latitude=${latitude}&longtitude=${longtitude}`;
-    fetch(api.host + api.getApi['getAutoComplete'], {
+    console.log("Getting auto complete data...");
+    let params = `?input=${placeName}&radius=${radius}&latitude=${latitude}&longitude=${longitude}`;
+    fetch(api.host + api.getApi['getAutoComplete'] + params, {
       method: "GET",
       mode: "cors",
     })
     .then((resp) => {
-      console.log(resp);
+      return resp.json();
     })
+    .then((resp) => {
+      console.log("Got auto complete data: ");
+      console.log(resp);
+      let predictions = resp.predictions;
+      if (predictions.length > 0) {
+        processPredictionsData(predictions);
+      }
+    });
   }
 
   // if the placeName changes, execute this function.
   useEffect(() => {
-    getAutoCompleteData();
+    if (latitude && longitude) {
+      getAutoCompleteData();
+    }
 
   }, [placeName]);
 
@@ -41,9 +71,14 @@ function Dropdown(props) {
   if (isShow && placeName) {
     return (
       <div className="dropdown-box">
-          <DropdownItem name="Discory museum" type="museum" distance="1.1" />
-          <DropdownItem name="Discory museum1" type="museum" distance="1.2" />
-          <DropdownItem name="Discory museum2" type="museum" distance="1.3" />
+        {placeList.map((item) => {
+          return <DropdownItem 
+            key={item.placeID}
+            name={item.name} 
+            type={item.type}
+            distance="1.1" 
+          />
+        })}
       </div>
     );
   }
