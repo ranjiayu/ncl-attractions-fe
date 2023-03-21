@@ -2,7 +2,7 @@
  * @Author: Jiayu Ran
  * @Date: 2023-03-08 16:29:10
  * @LastEditors: Jiayu Ran
- * @LastEditTime: 2023-03-16 13:11:49
+ * @LastEditTime: 2023-03-21 10:42:31
  * @Description: Result index page
  */
 
@@ -17,21 +17,9 @@ import { FaMapMarkedAlt, FaFilter } from 'react-icons/fa';
 import "../../styles/Result/Index.css";
 
 function ResultIndex() {
-  // const [center, setCenter] = useState(null);
+
   const { placeID } = useParams();
   const [showFilter, setShowFilter] = useState(false);
-
-  // useEffect(() => {
-  //   setDefaultLocation();
-  // }, []);
-
-  // function setDefaultLocation() {
-  //   if (navigator.geolocation) {
-  //     navigator.geolocation.getCurrentPosition((position) => {
-  //       setCenter({lat: position.coords.latitude , lng: position.coords.longitude});
-  //     });
-  //   }
-  // }
 
   function handleShowMap() {
     console.log("show Map component.");

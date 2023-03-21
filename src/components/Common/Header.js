@@ -2,8 +2,8 @@
  * @Author: Jiayu Ran
  * @Date: 2023-03-15 21:15:00
  * @LastEditors: Jiayu Ran
- * @LastEditTime: 2023-03-16 12:28:54
- * @Description: Description
+ * @LastEditTime: 2023-03-21 10:44:10
+ * @Description: Common header
  */
 import config from "../../config";
 import logo from "../../images/logo.png";

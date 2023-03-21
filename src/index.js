@@ -2,12 +2,13 @@
  * @Author: Jiayu Ran
  * @Date: 2023-03-08 16:10:09
  * @LastEditors: Jiayu Ran
- * @LastEditTime: 2023-03-10 19:52:11
+ * @LastEditTime: 2023-03-21 10:42:57
  * @Description: Entrance of js of the webpage
  */
 
 import React from 'react';
 import ReactDOM from 'react-dom/client';
+// import components
 import HomeIndex from './components/Home/Index';
 import ResultIndex from './components/Result/Index';
 import DetailIndex from './components/Detail/Index';

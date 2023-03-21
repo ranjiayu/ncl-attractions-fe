@@ -2,7 +2,7 @@
  * @Author: Jiayu Ran
  * @Date: 2023-03-14 13:26:46
  * @LastEditors: Jiayu Ran
- * @LastEditTime: 2023-03-14 15:12:06
+ * @LastEditTime: 2023-03-21 10:39:41
  * @Description: Description
  */
 import { useState } from "react";
@@ -12,6 +12,10 @@ function Filter(props) {
   const allTypes = ['History buildings', 'Museums', 'Libraries', 'Parks'];
   const [selectedType, setSelectedType] = useState([]);
   
+  /**
+   * Click type
+   * @param {String} type 
+   */
   function handleClickType(type) {
     let selected;
     if (selectedType.indexOf(type) === -1) {

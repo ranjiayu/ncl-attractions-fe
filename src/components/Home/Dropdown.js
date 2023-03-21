@@ -2,8 +2,8 @@
  * @Author: Jiayu Ran
  * @Date: 2023-03-16 12:51:46
  * @LastEditors: Jiayu Ran
- * @LastEditTime: 2023-03-16 18:38:24
- * @Description: Description
+ * @LastEditTime: 2023-03-21 10:41:41
+ * @Description: Dropdown box, which must be used with <SearchBox />
  */
 import DropdownItem from "./DropdownItem";
 import { useEffect, useState } from "react";
@@ -15,8 +15,8 @@ function Dropdown(props) {
   const isShow = props.isShow;
   const placeName = props.placeName;
   const [placeList, setPlaceList] = useState([]);
-  // 1500 meters default
-  const radius = 1500;
+  // 1mile = 1610 meters, by default
+  const radius = 1610;
   let latitude = 0;
   let longitude = 0;
   if (props.position.coords) {
@@ -25,6 +25,10 @@ function Dropdown(props) {
     longitude = props.position.coords.longitude;
   }
 
+  /**
+   * Format the result
+   * @param {Array} predictionsList 
+   */
   function processPredictionsData(predictionsList) {
     let result = [];
     for (let i = 0; i < predictionsList.length; i ++) {
@@ -39,6 +43,9 @@ function Dropdown(props) {
     setPlaceList(result);
   }
 
+  /**
+   * Send http request to get auto complete data.
+   */
   function getAutoCompleteData() {
     console.log("Getting auto complete data...");
     let params = `?input=${placeName}&radius=${radius}&latitude=${latitude}&longitude=${longitude}`;

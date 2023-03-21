@@ -1,13 +1,6 @@
-<!--
- * @Author: Jiayu Ran
- * @Date: 2023-03-08 16:10:09
- * @LastEditors: Jiayu Ran
- * @LastEditTime: 2023-03-16 16:28:54
- * @Description: Description
--->
 # ncl-attractions-fe
 
-## React learning material
+## React learning
 
 [https://beta.reactjs.org](https://beta.reactjs.org/)
 
@@ -19,8 +12,6 @@ npm start
 ```
 
 ## Coding standard
-
-[ESLint](https://eslint.org/docs/latest/use/getting-started)
 
 * Use 2 spaces instead of tab
 * The first letter of the component file and function name must be capitalized

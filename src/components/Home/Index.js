@@ -2,7 +2,7 @@
  * @Author: Jiayu Ran
  * @Date: 2023-03-08 16:19:47
  * @LastEditors: Jiayu Ran
- * @LastEditTime: 2023-03-16 16:36:50
+ * @LastEditTime: 2023-03-21 10:40:16
  * @Description: Home page
  */
 
@@ -25,6 +25,7 @@ function HomeIndex() {
   const [position, setPosition] = useState({});
   let timer;
 
+  // Get the current position by nabigator when dom loaded.
   useEffect(() => {
     window.navigator.geolocation.getCurrentPosition((position) => {
       setPosition(position);
@@ -65,7 +66,7 @@ function HomeIndex() {
 
         <div className="defaultNearby">
           <p className="defaultNearbyTitle">Attractions nearby</p>
-          <List />
+          <List position={position} />
         </div>
 
     </div>
