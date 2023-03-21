@@ -2,13 +2,14 @@
  * @Author: Jiayu Ran
  * @Date: 2023-03-16 12:51:46
  * @LastEditors: Jiayu Ran
- * @LastEditTime: 2023-03-21 10:41:41
+ * @LastEditTime: 2023-03-21 15:07:16
  * @Description: Dropdown box, which must be used with <SearchBox />
  */
 import DropdownItem from "./DropdownItem";
 import { useEffect, useState } from "react";
 import api from "../../api";
 import "../../styles/Home/Dropdown.css";
+import googleLogo from "../../images/google.png";
 
 function Dropdown(props) {
 
@@ -36,7 +37,8 @@ function Dropdown(props) {
         'placeID': predictionsList[i].place_id,
         'reference': predictionsList[i].reference,
         'name': predictionsList[i].structured_formatting.main_text,
-        'type': predictionsList[i].types[0]
+        'type': predictionsList[i].types[0],
+        'distance': predictionsList[i].distance_meters,
       };
       result.push(tempPlace);
     }
@@ -66,6 +68,11 @@ function Dropdown(props) {
     });
   }
 
+  function handleClickPlace(placeID, name) {
+    console.log(placeID, name);
+    // send request to get nearby places
+  }
+
   // if the placeName changes, execute this function.
   useEffect(() => {
     if (latitude && longitude) {
@@ -78,12 +85,17 @@ function Dropdown(props) {
   if (isShow && placeName) {
     return (
       <div className="dropdown-box">
+        <div className="google-map-tip">
+        <img src={googleLogo} />
+        <span>provides the following results</span>
+        </div>
         {placeList.map((item) => {
           return <DropdownItem 
             key={item.placeID}
             name={item.name} 
             type={item.type}
-            distance="1.1" 
+            distance={item.distance} 
+            onClick={() => {return handleClickPlace(item.placeID, item.name)}}
           />
         })}
       </div>

@@ -66,3 +66,19 @@
   border-bottom-right-radius: 25px;
 }
 
+.google-map-tip {
+  text-align: center;
+}
+
+.google-map-tip span {
+  vertical-align: middle;
+  text-align: center;
+  display: inline-block;
+  margin-top: -10px;
+  margin-left: 5px;
+  color: #b6b6b6;
+}
+
+.google-map-tip img {
+  margin-top: 5px;
+}

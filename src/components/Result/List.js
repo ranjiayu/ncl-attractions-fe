@@ -2,12 +2,13 @@
  * @Author: Jiayu Ran
  * @Date: 2023-03-08 16:28:27
  * @LastEditors: Jiayu Ran
- * @LastEditTime: 2023-03-21 10:42:39
+ * @LastEditTime: 2023-03-21 14:34:18
  * @Description: Places list, which is used in Home page 
  * and result page.
  */
 
 import PlaceItem from "./PlaceItem";
+import Error from "../Common/Error";
 import { useEffect, useState } from "react";
 import { BiLoader } from 'react-icons/bi';
 import api from "../../api";
@@ -16,6 +17,7 @@ import "../../styles/Result/List.css";
 function List(props) {
 
   const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(false);
   const [placesData, setPlacesData] = useState([]);
   const position = props.position;
 
@@ -64,7 +66,13 @@ function List(props) {
           console.log("processing data");
           processResult(resp.results);
         }
-      });
+      })
+      .catch((err) => {
+        // deal with the error, like network error.
+        setError(true);
+        setLoading(false);
+        console.log(err);
+      })
     }
 
   }
@@ -84,6 +92,15 @@ function List(props) {
       </div>
     );
   }
+
+  if (error && !loading) {
+    return (
+      <div>
+        <Error />
+      </div>
+    );
+  }
+
   return (
     <div className="resultList">
       <ul>
