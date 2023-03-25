@@ -2,7 +2,7 @@
  * @Author: Jiayu Ran
  * @Date: 2023-03-08 16:28:32
  * @LastEditors: Jiayu Ran
- * @LastEditTime: 2023-03-23 13:16:02
+ * @LastEditTime: 2023-03-25 22:55:25
  * @Description: Map component, which receives a location paramter as the map center
  */
 import { isValidElement, Children, cloneElement } from 'react';
@@ -31,6 +31,13 @@ function MyMap(props) {
     if (ref.current && !map) {
       console.log("init center:", center);
       if (center.lat && center.lng) {
+
+        // init map's height and width
+        let screenHeight = window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight;
+        console.log(screenHeight);
+        let height = screenHeight - 127;
+        ref.current.style.height = height + "px";
+
         setMap(new window.google.maps.Map(ref.current, {
           center: center,
           zoom: 16
@@ -48,7 +55,10 @@ function MyMap(props) {
 
   return (
     <>
-    <div ref={ref} id="map" style={{height: '500px', width: '500px'}} />
+    <div ref={ref} id="map" style={{height: '300px', width: '100vw'}} />
+
+    {/* This code is for passing `map` props to every Marker component */}
+    {/* It it very magic */}
     {Children.map(props.children, (child) => {
       // console.log(child);
         if (isValidElement(child)) {
@@ -66,10 +76,15 @@ const Map = (props) => {
     return <div></div>;
   }
 
+  const geometryData = props.data;
+  
+
   return (
     <Wrapper apiKey={config['MAP_API_KEY']}>
       <MyMap position={props.position}>
-        <Marker position={{lat: 54.97440121426228, lng: -1.6244824149688482}} />
+        { geometryData.map((item) => {
+          return <Marker position={item} />;
+        }) }
       </MyMap>
     </Wrapper>
   );

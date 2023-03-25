@@ -2,7 +2,7 @@
  * @Author: Jiayu Ran
  * @Date: 2023-03-23 12:51:28
  * @LastEditors: Jiayu Ran
- * @LastEditTime: 2023-03-23 13:15:49
+ * @LastEditTime: 2023-03-25 22:56:54
  * @Description: Map Marker Component
  */
 import { useEffect, useState } from "react";
@@ -16,7 +16,7 @@ const Marker = (options) => {
       setMarker(new window.google.maps.Marker());
     }
 
-    console.log(options);
+    // console.log(options);
 
     // remove marker from map on unmount
     return () => {

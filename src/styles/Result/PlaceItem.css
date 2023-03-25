@@ -20,6 +20,10 @@
   font-size: 20px;
   line-height: 24px;
   font-weight: 600;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  max-width: 290px;
+  overflow: hidden;
 }
 
 .placeItemInfo > .placeMile {
@@ -40,4 +44,8 @@
 .placeItemInfo > .placeType {
   font-size: 12px;
   color: #888686;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  max-width: 290px;
+  overflow: hidden;
 }

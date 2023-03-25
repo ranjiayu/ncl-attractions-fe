@@ -2,7 +2,7 @@
  * @Author: Jiayu Ran
  * @Date: 2023-03-08 16:29:10
  * @LastEditors: Jiayu Ran
- * @LastEditTime: 2023-03-23 12:41:26
+ * @LastEditTime: 2023-03-25 22:57:28
  * @Description: Result index page
  */
 import { useState, useEffect } from 'react';
@@ -22,8 +22,8 @@ function ResultIndex() {
   const { placeID } = useParams();
   const [showFilter, setShowFilter] = useState(false);
   const [showMap, setShowMap] = useState(false);
-
   const [position, setPosition] = useState({});
+  const [geometryData, setGeometryData] = useState([]);
   // Get the current position by nabigator when dom loaded.
   useEffect(() => {
     window.navigator.geolocation.getCurrentPosition((position) => {
@@ -49,6 +49,17 @@ function ResultIndex() {
     setShowFilter(false);
   }
 
+  // When the list component has loaded the result, invoke this
+  function handleOnLoaded(results) {
+    console.log("Result Index get data from List:");
+    console.log(results);
+    let positionData = [];
+    for (let i = 0; i < results.length; i ++) {
+      let tmp = results[i].geometry.location;
+      positionData.push(tmp);
+    }
+    setGeometryData(positionData);
+  }
 
   return (
     <div className="resultIndex">
@@ -56,11 +67,10 @@ function ResultIndex() {
         <SearchBox name={placeID}/>
       </div>
 
-      <Map position={position} isShow={showMap} />
       <div className="placeContainer">
 
+        {/* function controller bar */}
         <div className="functionContainer">
-
           <Button type="primary" onClick={handleShowMap}>
             <FaMapMarkedAlt />
             <span>Map</span>
@@ -70,11 +80,23 @@ function ResultIndex() {
             <FaFilter />
             <span>Filter</span>
           </Button>
-
         </div>
 
-        <List position={position}/>
+        {/* Map component */}
+        <Map
+          position={position}
+          isShow={showMap}
+          data={geometryData}
+        />
 
+        {/* Place List */}
+        <List
+          position={position}
+          isShow={!showMap} 
+          onLoaded={handleOnLoaded}
+        />
+
+        {/* Filter Mask */}
         <Filter isShow={showFilter} callback={closeFilter} />
 
       </div>

@@ -2,7 +2,7 @@
  * @Author: Jiayu Ran
  * @Date: 2023-03-08 16:28:27
  * @LastEditors: Jiayu Ran
- * @LastEditTime: 2023-03-21 14:34:18
+ * @LastEditTime: 2023-03-25 22:45:59
  * @Description: Places list, which is used in Home page 
  * and result page.
  */
@@ -20,6 +20,8 @@ function List(props) {
   const [error, setError] = useState(false);
   const [placesData, setPlacesData] = useState([]);
   const position = props.position;
+  const isShow = props.isShow;
+  const onloadedFunc = props.onLoaded;
 
   /**
    * Format the result
@@ -64,7 +66,14 @@ function List(props) {
         console.log(resp);
         if (resp.results && resp.results.length > 0) {
           console.log("processing data");
+          // format the data from the server
           processResult(resp.results);
+
+          // notify the father component that the data has received
+          // Then the father component will send the data to "Map" components
+          if (onloadedFunc) {
+            onloadedFunc(resp.results);
+          }
         }
       })
       .catch((err) => {
@@ -102,7 +111,7 @@ function List(props) {
   }
 
   return (
-    <div className="resultList">
+    <div className="resultList" style={{display: isShow ? 'block' : 'none'}}>
       <ul>
         {placesData.map((item) => {
           return <PlaceItem key={item.placeID} item={item}></PlaceItem>
