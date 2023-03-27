@@ -2,7 +2,7 @@
  * @Author: Jiayu Ran
  * @Date: 2023-03-11 00:18:15
  * @LastEditors: Jiayu Ran
- * @LastEditTime: 2023-03-27 11:10:34
+ * @LastEditTime: 2023-03-27 17:17:18
  * @Description: Search input box component
  */
 import { useState } from 'react';
@@ -32,6 +32,7 @@ function SearchBox(props) {
         value={searchName}
         onChange={handleOnChange} />
       <div className="searchButton" onClick={handleClickSearch}><FaSearch size="26px"/></div>
+      {props.children}
     </div>
 
   );

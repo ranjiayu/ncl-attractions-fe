@@ -2,7 +2,7 @@
  * @Author: Jiayu Ran
  * @Date: 2023-03-08 16:19:47
  * @LastEditors: Jiayu Ran
- * @LastEditTime: 2023-03-27 11:33:04
+ * @LastEditTime: 2023-03-27 17:28:21
  * @Description: Home page
  */
 
@@ -58,13 +58,15 @@ function HomeIndex() {
         <AppHeader />
 
         <div className="home-search-box">
-          <div style={{width: "80%", position: "relative"}}>
-            <SearchBox onChange={handlePlaceNameChange}/>
-            <Dropdown 
-              isShow={showDropdown}
-              placeName={placeName}
-              position={position}
-            />
+          <div style={{width: "80%", position: "relative", 'zIndex': 9999}}>
+            <SearchBox onChange={handlePlaceNameChange}>
+              <Dropdown 
+                isShow={showDropdown}
+                placeName={placeName}
+                position={position}
+              />
+            </SearchBox>
+
           </div>
         </div>
 

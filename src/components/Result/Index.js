@@ -2,7 +2,7 @@
  * @Author: Jiayu Ran
  * @Date: 2023-03-08 16:29:10
  * @LastEditors: Jiayu Ran
- * @LastEditTime: 2023-03-27 17:11:53
+ * @LastEditTime: 2023-03-27 17:16:39
  * @Description: Result index page
  */
 import { useState, useEffect } from 'react';
@@ -104,15 +104,18 @@ function ResultIndex() {
 
   return (
     <div className="resultIndex">
-      <div style={{padding: '5px', background: '#d7e9fb', position: 'relative'}}>
+      <div style={{padding: '5px', background: '#d7e9fb'}}>
         <SearchBox 
           name={placeID} 
-          onChange={handlePlaceNameChange}/>
-        <Dropdown 
-          isShow={showDropdown}
-          placeName={placeName}
-          position={position}
-        />
+          onChange={handlePlaceNameChange}>
+            <Dropdown 
+              isShow={showDropdown}
+              placeName={placeName}
+              position={position}
+            />
+
+        </SearchBox>
+
       </div>
 
       <div className="placeContainer">
