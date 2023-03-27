@@ -2,7 +2,7 @@
  * @Author: Jiayu Ran
  * @Date: 2023-03-08 16:19:47
  * @LastEditors: Jiayu Ran
- * @LastEditTime: 2023-03-21 10:40:16
+ * @LastEditTime: 2023-03-27 11:33:04
  * @Description: Home page
  */
 
@@ -28,7 +28,11 @@ function HomeIndex() {
   // Get the current position by nabigator when dom loaded.
   useEffect(() => {
     window.navigator.geolocation.getCurrentPosition((position) => {
-      setPosition(position);
+      let p = {
+        lat: position.coords.latitude,
+        lng: position.coords.longitude,
+      }
+      setPosition(p);
     });
   }, []);
 
@@ -66,7 +70,7 @@ function HomeIndex() {
 
         <div className="defaultNearby">
           <p className="defaultNearbyTitle">Attractions nearby</p>
-          <List position={position} />
+          <List position={position} isShow={true}/>
         </div>
 
     </div>

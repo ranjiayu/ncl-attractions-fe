@@ -2,12 +2,12 @@
  * @Author: Jiayu Ran
  * @Date: 2023-03-08 16:29:10
  * @LastEditors: Jiayu Ran
- * @LastEditTime: 2023-03-25 22:57:28
+ * @LastEditTime: 2023-03-27 11:31:06
  * @Description: Result index page
  */
 import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
-
+import api from '../../api';
 // components
 import SearchBox from '../Home/SearchBox';
 import List from './List';
@@ -24,11 +24,28 @@ function ResultIndex() {
   const [showMap, setShowMap] = useState(false);
   const [position, setPosition] = useState({});
   const [geometryData, setGeometryData] = useState([]);
-  // Get the current position by nabigator when dom loaded.
+
   useEffect(() => {
-    window.navigator.geolocation.getCurrentPosition((position) => {
-      setPosition(position);
-    });
+    // invoke getDetails API to get the geometry of the searching place
+    fetch(api.host + api.getApi['getDetails'] + "?placeID=" + placeID, {
+      method: "GET",
+      mode: "cors",
+    })
+    .then((resp) => {
+      return resp.json();
+    })
+    .then((resp) => {
+      console.log(resp);
+      if (resp && resp.result) {
+        // set the location
+        let location = resp.result.geometry && resp.result.geometry.location;
+        console.log("Current position:");
+        console.log(location);
+        setPosition(location);
+      }
+    })
+
+
   }, []);
 
   function handleShowMap() {

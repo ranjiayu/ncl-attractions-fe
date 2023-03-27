@@ -2,7 +2,7 @@
  * @Author: Jiayu Ran
  * @Date: 2023-03-08 16:28:27
  * @LastEditors: Jiayu Ran
- * @LastEditTime: 2023-03-25 22:45:59
+ * @LastEditTime: 2023-03-27 11:32:00
  * @Description: Places list, which is used in Home page 
  * and result page.
  */
@@ -30,11 +30,12 @@ function List(props) {
   function processResult(result) {
     let data = [];
     for (let i = 0; i < result.length; i ++) {
+
       let tmpObj = {
         name: result[i].name,
         placeID: result[i].place_id,
         rate: result[i].rating,
-        reference: result[i].photos[0].photo_reference,
+        reference: result[i].photos && result[i].photos[0].photo_reference,
         type: result[i].types.join(','),
       };
       data.push(tmpObj);
@@ -50,9 +51,9 @@ function List(props) {
    * @param {Object} position 
    */
   function getPlacesByLocation(position) {
-    if (position && position.coords) {
-      let latitude = position.coords.latitude;
-      let longitude = position.coords.longitude
+    if (position && position.lat) {
+      let latitude = position.lat;
+      let longitude = position.lng;
       let params = `?latitude=${latitude}&longitude=${longitude}`;
       fetch(api.host + api.getApi['getNearbyAttractions'] + params, {
         method: "GET",

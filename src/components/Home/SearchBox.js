@@ -2,7 +2,7 @@
  * @Author: Jiayu Ran
  * @Date: 2023-03-11 00:18:15
  * @LastEditors: Jiayu Ran
- * @LastEditTime: 2023-03-16 16:01:04
+ * @LastEditTime: 2023-03-27 11:10:34
  * @Description: Search input box component
  */
 import { useState } from 'react';
@@ -28,7 +28,7 @@ function SearchBox(props) {
 
     <div className="searchBox">
       <input type="text"
-        placeholder="Where next?" 
+        placeholder="Change location" 
         value={searchName}
         onChange={handleOnChange} />
       <div className="searchButton" onClick={handleClickSearch}><FaSearch size="26px"/></div>

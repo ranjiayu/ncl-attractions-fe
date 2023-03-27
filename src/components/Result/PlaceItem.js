@@ -2,7 +2,7 @@
  * @Author: Jiayu Ran
  * @Date: 2023-03-08 17:36:41
  * @LastEditors: Jiayu Ran
- * @LastEditTime: 2023-03-25 21:56:53
+ * @LastEditTime: 2023-03-27 10:52:13
  * @Description: Every place item in the list
  */
 
@@ -20,8 +20,10 @@ function PlaceItem({item}) {
     navigate("/place/" + item.placeID);
   }
   // Get place picutre from google map by place-reference.
-  let picUrl = `https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photo_reference=${item.reference}&key=${config['MAP_API_KEY']}`;
-
+  let picUrl;
+  if (item.reference) {
+    picUrl = `https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photo_reference=${item.reference}&key=${config['MAP_API_KEY']}`;
+  }
   return (
     <div className="placeItem" onClick={handleToDetail}>
       <img className="placeItemImg" src={picUrl} alt={item.name} />

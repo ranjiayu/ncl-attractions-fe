@@ -2,17 +2,18 @@
  * @Author: Jiayu Ran
  * @Date: 2023-03-16 12:51:46
  * @LastEditors: Jiayu Ran
- * @LastEditTime: 2023-03-21 15:07:16
+ * @LastEditTime: 2023-03-27 11:34:23
  * @Description: Dropdown box, which must be used with <SearchBox />
  */
 import DropdownItem from "./DropdownItem";
 import { useEffect, useState } from "react";
+import { useNavigate } from 'react-router-dom';
 import api from "../../api";
 import "../../styles/Home/Dropdown.css";
 import googleLogo from "../../images/google.png";
 
 function Dropdown(props) {
-
+  const navigate = useNavigate();
   const isShow = props.isShow;
   const placeName = props.placeName;
   const [placeList, setPlaceList] = useState([]);
@@ -20,10 +21,10 @@ function Dropdown(props) {
   const radius = 1610;
   let latitude = 0;
   let longitude = 0;
-  if (props.position.coords) {
-    console.log(props.position.coords);
-    latitude = props.position.coords.latitude;
-    longitude = props.position.coords.longitude;
+  if (props.position) {
+    console.log(props.position);
+    latitude = props.position.lat;
+    longitude = props.position.lng;
   }
 
   /**
@@ -69,8 +70,8 @@ function Dropdown(props) {
   }
 
   function handleClickPlace(placeID, name) {
-    console.log(placeID, name);
-    // send request to get nearby places
+    console.log("To result page:" + placeID);
+    navigate("/result/" + placeID);
   }
 
   // if the placeName changes, execute this function.
