@@ -2,7 +2,7 @@
  * @Author: Jiayu Ran
  * @Date: 2023-03-08 16:28:32
  * @LastEditors: Jiayu Ran
- * @LastEditTime: 2023-03-25 22:55:25
+ * @LastEditTime: 2023-03-27 16:50:54
  * @Description: Map component, which receives a location paramter as the map center
  */
 import { isValidElement, Children, cloneElement } from 'react';
@@ -19,10 +19,10 @@ function MyMap(props) {
   const [map, setMap] = useState();
   // test
   let center = {};
-  if (position && position.coords) {
+  if (position) {
     center = {
-      lat: position.coords.latitude,
-      lng: position.coords.longitude,
+      lat: position.lat,
+      lng: position.lng,
     }
   }
 
@@ -34,13 +34,12 @@ function MyMap(props) {
 
         // init map's height and width
         let screenHeight = window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight;
-        console.log(screenHeight);
         let height = screenHeight - 127;
         ref.current.style.height = height + "px";
 
         setMap(new window.google.maps.Map(ref.current, {
           center: center,
-          zoom: 16
+          zoom: 14
         }));
       }
 
@@ -82,8 +81,14 @@ const Map = (props) => {
   return (
     <Wrapper apiKey={config['MAP_API_KEY']}>
       <MyMap position={props.position}>
-        { geometryData.map((item) => {
-          return <Marker position={item} />;
+
+        {/* Nearby attractions' markers */}
+        { geometryData.map((item, index) => {
+          return <Marker 
+            position={item}
+            label={index + ""}
+            title={item.title}
+            key={item.lat + "," + item.lng} />;
         }) }
       </MyMap>
     </Wrapper>

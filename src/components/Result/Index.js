@@ -2,7 +2,7 @@
  * @Author: Jiayu Ran
  * @Date: 2023-03-08 16:29:10
  * @LastEditors: Jiayu Ran
- * @LastEditTime: 2023-03-27 11:31:06
+ * @LastEditTime: 2023-03-27 17:11:53
  * @Description: Result index page
  */
 import { useState, useEffect } from 'react';
@@ -14,16 +14,20 @@ import List from './List';
 import Map from './Map';
 import Filter from './Filter';
 import Button from '../Common/Button';
+import Dropdown from '../Home/Dropdown';
 import { FaMapMarkedAlt, FaFilter } from 'react-icons/fa';
 import "../../styles/Result/Index.css";
 
 function ResultIndex() {
 
   const { placeID } = useParams();
+  const [placeName, setPlaceName] = useState("");
   const [showFilter, setShowFilter] = useState(false);
   const [showMap, setShowMap] = useState(false);
+  const [showDropdown, setShowDropdown] = useState(false);
   const [position, setPosition] = useState({});
   const [geometryData, setGeometryData] = useState([]);
+  let timer;
 
   useEffect(() => {
     // invoke getDetails API to get the geometry of the searching place
@@ -66,13 +70,33 @@ function ResultIndex() {
     setShowFilter(false);
   }
 
+  function handlePlaceNameChange(e) {
+    // send autocomplete api after stopping typing for 1.5 seconds
+    clearTimeout(timer);
+    timer = setTimeout(() => {
+      console.log("Set place name: " + e.target.value);
+      if (!e.target.value) {
+        setShowDropdown(false);
+      } else {
+        setPlaceName(e.target.value);
+        setShowDropdown(true);
+        
+        console.log("show dropdown");
+      }
+
+    }, 1500);
+  }
+
   // When the list component has loaded the result, invoke this
   function handleOnLoaded(results) {
     console.log("Result Index get data from List:");
     console.log(results);
     let positionData = [];
+    // add nearby attractions' location information
     for (let i = 0; i < results.length; i ++) {
       let tmp = results[i].geometry.location;
+      tmp.title = results[i].name;
+      tmp.label = i + "";
       positionData.push(tmp);
     }
     setGeometryData(positionData);
@@ -80,8 +104,15 @@ function ResultIndex() {
 
   return (
     <div className="resultIndex">
-      <div style={{padding: '5px', background: '#d7e9fb'}}>
-        <SearchBox name={placeID}/>
+      <div style={{padding: '5px', background: '#d7e9fb', position: 'relative'}}>
+        <SearchBox 
+          name={placeID} 
+          onChange={handlePlaceNameChange}/>
+        <Dropdown 
+          isShow={showDropdown}
+          placeName={placeName}
+          position={position}
+        />
       </div>
 
       <div className="placeContainer">
