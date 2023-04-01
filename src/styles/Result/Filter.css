@@ -22,3 +22,8 @@
   border-top-left-radius: 20px;
   padding: 18px;
 }
+
+.showResultBtn {
+  position: absolute;
+  bottom: 50px;
+}

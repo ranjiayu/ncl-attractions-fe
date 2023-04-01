@@ -2,7 +2,7 @@
  * @Author: Jiayu Ran
  * @Date: 2023-03-14 13:26:46
  * @LastEditors: Jiayu Ran
- * @LastEditTime: 2023-03-21 10:39:41
+ * @LastEditTime: 2023-04-01 23:21:23
  * @Description: Description
  */
 import { useState } from "react";
@@ -10,6 +10,12 @@ import Button from "../Common/Button";
 import "../../styles/Result/Filter.css";
 function Filter(props) {
   const allTypes = ['History buildings', 'Museums', 'Libraries', 'Parks'];
+  const typeMap = {
+    'History buildings': 'point_of_interest',
+    'Museums': 'museum',
+    'Libraries': 'library',
+    'Parks': 'park',
+  };
   const [selectedType, setSelectedType] = useState([]);
   
   /**
@@ -33,6 +39,21 @@ function Filter(props) {
     }
   }
 
+  /**
+   * When click 'show results', convert types into types used in server
+   * eg. Libraries -> library, Museums -> museum
+   */
+  function handleShowResult() {
+    console.log(selectedType);
+    selectedType = selectedType.map((item, index) => {
+      if (item in typeMap) {
+        selectedType[index] = typeMap[item];
+      }
+    })
+    console.log("Change selected type to:", selectedType);
+    clickCallback(selectedType);
+  }
+
   if (!props.isShow) {
     return <div></div>
   }
@@ -44,17 +65,20 @@ function Filter(props) {
         <p style={{'color': '#63ACF0', 'fontWeight': 900, 'lineHeight': '24px', 'fontSize': '20px'}}>Type of attractions</p>
         <br />
 
-          {allTypes.map((k, v)=> {
-            return (
-              <Button 
-                type={selectedType.indexOf(k) !== -1 ? 'primary' : 'default'}
-                onClick={() => handleClickType(k)}
-                style={{'marginBottom': '12px'}}
-                key={v}>{k}
-              </Button>
-            );
-          })}
+        {allTypes.map((k, v)=> {
+          return (
+            <Button 
+              type={selectedType.indexOf(k) !== -1 ? 'primary' : 'default'}
+              onClick={() => handleClickType(k)}
+              style={{'marginBottom': '12px'}}
+              key={v}>{k}
+            </Button>
+          );
+        })}
 
+        <div className="showResultBtn">
+          <Button type="primary" onClick={handleShowResult}>Show results</Button>
+        </div>
 
       </div>
 

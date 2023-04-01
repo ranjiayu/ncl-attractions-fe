@@ -2,7 +2,7 @@
  * @Author: Jiayu Ran
  * @Date: 2023-03-08 16:28:27
  * @LastEditors: Jiayu Ran
- * @LastEditTime: 2023-03-27 11:32:00
+ * @LastEditTime: 2023-04-01 23:16:53
  * @Description: Places list, which is used in Home page 
  * and result page.
  */
@@ -22,6 +22,7 @@ function List(props) {
   const position = props.position;
   const isShow = props.isShow;
   const onloadedFunc = props.onLoaded;
+  const placeType = props.placeType || [];
 
   /**
    * Format the result
@@ -30,7 +31,6 @@ function List(props) {
   function processResult(result) {
     let data = [];
     for (let i = 0; i < result.length; i ++) {
-
       let tmpObj = {
         name: result[i].name,
         placeID: result[i].place_id,
@@ -40,7 +40,6 @@ function List(props) {
       };
       data.push(tmpObj);
     }
-    console.log(data);
     setPlacesData(data);
     setLoading(false);
   }
@@ -49,12 +48,17 @@ function List(props) {
   /**
    * Send http request to get nearby places
    * @param {Object} position 
+   * @param {Array} placeType optional. ['library', 'park', 'museum', 'point_of_interest']
    */
-  function getPlacesByLocation(position) {
+  function getPlacesByLocation(position, placeType) {
     if (position && position.lat) {
       let latitude = position.lat;
       let longitude = position.lng;
       let params = `?latitude=${latitude}&longitude=${longitude}`;
+      if (placeType && placeType.length) {
+        placeType = placeType.join("|");
+        params += ("&placeType=" + placeType);
+      }
       fetch(api.host + api.getApi['getNearbyAttractions'] + params, {
         method: "GET",
         mode: "cors",
@@ -88,7 +92,7 @@ function List(props) {
   }
 
   useEffect(() => {
-    getPlacesByLocation(position);
+    getPlacesByLocation(position, placeType);
   }, [position]);
 
   // Loading

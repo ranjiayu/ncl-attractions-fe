@@ -2,7 +2,7 @@
  * @Author: Jiayu Ran
  * @Date: 2023-03-08 16:29:10
  * @LastEditors: Jiayu Ran
- * @LastEditTime: 2023-03-27 17:16:39
+ * @LastEditTime: 2023-04-01 23:16:08
  * @Description: Result index page
  */
 import { useState, useEffect } from 'react';
@@ -23,6 +23,7 @@ function ResultIndex() {
   const { placeID } = useParams();
   const [placeName, setPlaceName] = useState("");
   const [showFilter, setShowFilter] = useState(false);
+  const [placeType, setPlaceType] = useState([]);
   const [showMap, setShowMap] = useState(false);
   const [showDropdown, setShowDropdown] = useState(false);
   const [position, setPosition] = useState({});
@@ -68,6 +69,15 @@ function ResultIndex() {
 
   function closeFilter() {
     setShowFilter(false);
+  }
+
+  /**
+   * 
+   * @param {Array} t array of types
+   */
+  function handleClickCallback(t) {
+    // when placeType changes, the <List> component will re-render.
+    setPlaceType(t);
   }
 
   function handlePlaceNameChange(e) {
@@ -143,12 +153,17 @@ function ResultIndex() {
         {/* Place List */}
         <List
           position={position}
+          placeType={placeType}
           isShow={!showMap} 
           onLoaded={handleOnLoaded}
         />
 
-        {/* Filter Mask */}
-        <Filter isShow={showFilter} callback={closeFilter} />
+        {/* Filter Mask. TODO: when filter's conditions changed, refresh list */}
+        <Filter
+          isShow={showFilter}
+          callback={closeFilter}
+          clickCallback={handleClickCallback}
+        />
 
       </div>
 
