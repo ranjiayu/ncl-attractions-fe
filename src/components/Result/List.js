@@ -2,7 +2,7 @@
  * @Author: Jiayu Ran
  * @Date: 2023-03-08 16:28:27
  * @LastEditors: Jiayu Ran
- * @LastEditTime: 2023-04-01 23:16:53
+ * @LastEditTime: 2023-04-03 16:33:27
  * @Description: Places list, which is used in Home page 
  * and result page.
  */
@@ -56,7 +56,7 @@ function List(props) {
       let longitude = position.lng;
       let params = `?latitude=${latitude}&longitude=${longitude}`;
       if (placeType && placeType.length) {
-        placeType = placeType.join("|");
+        placeType = placeType.join(",");
         params += ("&placeType=" + placeType);
       }
       fetch(api.host + api.getApi['getNearbyAttractions'] + params, {
@@ -93,7 +93,7 @@ function List(props) {
 
   useEffect(() => {
     getPlacesByLocation(position, placeType);
-  }, [position]);
+  }, [position, placeType]);
 
   // Loading
   if (loading) {

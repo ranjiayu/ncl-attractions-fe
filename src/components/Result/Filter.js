@@ -2,7 +2,7 @@
  * @Author: Jiayu Ran
  * @Date: 2023-03-14 13:26:46
  * @LastEditors: Jiayu Ran
- * @LastEditTime: 2023-04-01 23:21:23
+ * @LastEditTime: 2023-04-03 15:51:38
  * @Description: Description
  */
 import { useState } from "react";
@@ -45,13 +45,14 @@ function Filter(props) {
    */
   function handleShowResult() {
     console.log(selectedType);
-    selectedType = selectedType.map((item, index) => {
+    let newSelectedType = [];
+    selectedType.map((item, index) => {
       if (item in typeMap) {
-        selectedType[index] = typeMap[item];
+        newSelectedType.push(typeMap[item]);
       }
-    })
-    console.log("Change selected type to:", selectedType);
-    clickCallback(selectedType);
+    });
+    console.log("Change selected type to:", newSelectedType);
+    props.clickCallback(newSelectedType);
   }
 
   if (!props.isShow) {

@@ -2,7 +2,7 @@
  * @Author: Jiayu Ran
  * @Date: 2023-03-08 16:29:10
  * @LastEditors: Jiayu Ran
- * @LastEditTime: 2023-04-01 23:16:08
+ * @LastEditTime: 2023-04-03 17:20:08
  * @Description: Result index page
  */
 import { useState, useEffect } from 'react';
@@ -15,7 +15,7 @@ import Map from './Map';
 import Filter from './Filter';
 import Button from '../Common/Button';
 import Dropdown from '../Home/Dropdown';
-import { FaMapMarkedAlt, FaFilter } from 'react-icons/fa';
+import { FaMapMarkedAlt, FaFilter, FaListUl } from 'react-icons/fa';
 import "../../styles/Result/Index.css";
 
 function ResultIndex() {
@@ -112,6 +112,23 @@ function ResultIndex() {
     setGeometryData(positionData);
   }
 
+  function MapListButton() {
+    if (showMap) {
+      return (
+        <>
+          <FaListUl />
+          <span>List</span>
+        </>
+      );
+    }
+    return (
+      <>
+        <FaMapMarkedAlt />
+        <span>Map</span>
+      </>
+    );
+  }
+
   return (
     <div className="resultIndex">
       <div style={{padding: '5px', background: '#d7e9fb'}}>
@@ -133,8 +150,9 @@ function ResultIndex() {
         {/* function controller bar */}
         <div className="functionContainer">
           <Button type="primary" onClick={handleShowMap}>
-            <FaMapMarkedAlt />
-            <span>Map</span>
+
+            <MapListButton />
+
           </Button>
 
           <Button type="primary" onClick={handleShowFilter}>

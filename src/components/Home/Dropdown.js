@@ -2,7 +2,7 @@
  * @Author: Jiayu Ran
  * @Date: 2023-03-16 12:51:46
  * @LastEditors: Jiayu Ran
- * @LastEditTime: 2023-03-27 11:34:23
+ * @LastEditTime: 2023-04-03 15:21:55
  * @Description: Dropdown box, which must be used with <SearchBox />
  */
 import DropdownItem from "./DropdownItem";
@@ -71,7 +71,7 @@ function Dropdown(props) {
 
   function handleClickPlace(placeID, name) {
     console.log("To result page:" + placeID);
-    navigate("/result/" + placeID);
+    navigate("/result/" + placeID + "?name=" + name);
   }
 
   // if the placeName changes, execute this function.

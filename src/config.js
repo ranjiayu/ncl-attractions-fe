@@ -2,14 +2,13 @@
  * @Author: Jiayu Ran
  * @Date: 2023-03-09 09:03:17
  * @LastEditors: Jiayu Ran
- * @LastEditTime: 2023-03-17 13:17:03
+ * @LastEditTime: 2023-04-03 15:44:57
  * @Description: configurations
  */
 
 const config = {
   'APP_NAME': 'New Castle',
   'MAP_API_KEY': 'AIzaSyCOVP27tJRVNkn4D9BxLo6oap9nM3V-lVA',
-  // 'GOOGLE_MAP_PHOTO_API': 'https://maps.googleapis.com/maps/api/place/photo',
 };
 
 /*
