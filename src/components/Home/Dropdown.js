@@ -2,7 +2,7 @@
  * @Author: Jiayu Ran
  * @Date: 2023-03-16 12:51:46
  * @LastEditors: Jiayu Ran
- * @LastEditTime: 2023-04-03 15:21:55
+ * @LastEditTime: 2023-04-07 15:15:29
  * @Description: Dropdown box, which must be used with <SearchBox />
  */
 import DropdownItem from "./DropdownItem";
@@ -29,17 +29,17 @@ function Dropdown(props) {
 
   /**
    * Format the result
-   * @param {Array} predictionsList 
+   * @param {Array} results 
    */
-  function processPredictionsData(predictionsList) {
+  function processPredictionsData(results) {
     let result = [];
-    for (let i = 0; i < predictionsList.length; i ++) {
+    for (let i = 0; i < results.length; i ++) {
       let tempPlace = {
-        'placeID': predictionsList[i].place_id,
-        'reference': predictionsList[i].reference,
-        'name': predictionsList[i].structured_formatting.main_text,
-        'type': predictionsList[i].types[0],
-        'distance': predictionsList[i].distance_meters,
+        'placeID': results[i].place_id,
+        'reference': results[i].reference,
+        'name': results[i].description,
+        'type': results[i].types[0],
+        'distance': results[i].distance_meters,
       };
       result.push(tempPlace);
     }
@@ -62,9 +62,8 @@ function Dropdown(props) {
     .then((resp) => {
       console.log("Got auto complete data: ");
       console.log(resp);
-      let predictions = resp.predictions;
-      if (predictions.length > 0) {
-        processPredictionsData(predictions);
+      if (resp && resp.length) {
+        processPredictionsData(resp);
       }
     });
   }

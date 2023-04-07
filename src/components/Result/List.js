@@ -2,7 +2,7 @@
  * @Author: Jiayu Ran
  * @Date: 2023-03-08 16:28:27
  * @LastEditors: Jiayu Ran
- * @LastEditTime: 2023-04-07 14:54:25
+ * @LastEditTime: 2023-04-07 15:03:07
  * @Description: Places list, which is used in Home page 
  * and result page.
  */
@@ -35,7 +35,7 @@ function List(props) {
         name: result[i].name,
         placeID: result[i].place_id,
         rate: result[i].rating,
-        reference: result[i].photos && result[i].photos[0].photo_reference,
+        reference: result[i].photos && result[i].photos.length && result[i].photos[0].photo_reference,
         type: result[i].types.join(','),
       };
       data.push(tmpObj);
@@ -69,15 +69,15 @@ function List(props) {
       .then((resp) => {
         console.log("Got nearby places data: ");
         console.log(resp);
-        if (resp.results && resp.results.length > 0) {
+        if (resp && resp.length > 0) {
           console.log("processing data");
           // format the data from the server
-          processResult(resp.results);
+          processResult(resp);
 
           // notify the father component that the data has received
           // Then the father component will send the data to "Map" components
           if (onloadedFunc) {
-            onloadedFunc(resp.results);
+            onloadedFunc(resp);
           }
         }
       })
@@ -91,6 +91,7 @@ function List(props) {
 
   }
 
+  // placeType should be stringify, or the page will re-render many times.
   useEffect(() => {
     getPlacesByLocation(position, placeType);
   }, [position, JSON.stringify(placeType)]);

@@ -2,7 +2,7 @@
  * @Author: Jiayu Ran
  * @Date: 2023-03-08 16:29:10
  * @LastEditors: Jiayu Ran
- * @LastEditTime: 2023-04-03 17:20:08
+ * @LastEditTime: 2023-04-07 15:52:38
  * @Description: Result index page
  */
 import { useState, useEffect } from 'react';
@@ -41,16 +41,14 @@ function ResultIndex() {
     })
     .then((resp) => {
       console.log(resp);
-      if (resp && resp.result) {
+      if (resp && resp.place_id) {
         // set the location
-        let location = resp.result.geometry && resp.result.geometry.location;
+        let location = resp.geometry && resp.geometry.location;
         console.log("Current position:");
         console.log(location);
         setPosition(location);
       }
     })
-
-
   }, []);
 
   function handleShowMap() {
