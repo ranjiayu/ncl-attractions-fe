@@ -2,13 +2,12 @@
  * @Author: Jiayu Ran
  * @Date: 2023-03-08 16:19:47
  * @LastEditors: Jiayu Ran
- * @LastEditTime: 2023-03-27 17:28:21
+ * @LastEditTime: 2023-04-07 14:40:51
  * @Description: Home page
  */
 
 import React, { useEffect } from 'react';
 import { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
 // Components
 import AppHeader from "../Common/Header";
 import SearchBox from './SearchBox';
@@ -21,7 +20,6 @@ function HomeIndex() {
 
   const [placeName, setPlaceName] = useState('');
   const [showDropdown, setShowDropdown] = useState(false);
-  const navigate = useNavigate();
   const [position, setPosition] = useState({});
   let timer;
 
@@ -72,7 +70,10 @@ function HomeIndex() {
 
         <div className="defaultNearby">
           <p className="defaultNearbyTitle">Attractions nearby</p>
-          <List position={position} isShow={true}/>
+          <List 
+            position={position}
+            isShow={true}
+          />
         </div>
 
     </div>

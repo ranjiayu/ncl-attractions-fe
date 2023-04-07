@@ -2,7 +2,7 @@
  * @Author: Jiayu Ran
  * @Date: 2023-03-08 16:28:27
  * @LastEditors: Jiayu Ran
- * @LastEditTime: 2023-04-03 16:33:27
+ * @LastEditTime: 2023-04-07 14:54:25
  * @Description: Places list, which is used in Home page 
  * and result page.
  */
@@ -93,7 +93,7 @@ function List(props) {
 
   useEffect(() => {
     getPlacesByLocation(position, placeType);
-  }, [position, placeType]);
+  }, [position, JSON.stringify(placeType)]);
 
   // Loading
   if (loading) {
