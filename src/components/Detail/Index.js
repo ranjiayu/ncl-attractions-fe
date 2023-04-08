@@ -2,10 +2,11 @@
  * @Author: Jiayu Ran
  * @Date: 2023-03-08 16:30:16
  * @LastEditors: Jiayu Ran
- * @LastEditTime: 2023-04-08 14:34:36
+ * @LastEditTime: 2023-04-08 14:51:20
  * @Description: The place detail page
  */
 import AppHeader from "../Common/Header";
+import ReviewList from "./ReviewList";
 import "../../styles/Detail/Index.css";
 import googleImg from "../../images/google.png";
 import { useEffect, useState } from "react";
@@ -38,9 +39,13 @@ function DetailIndex() {
   return (
     <div>
       <AppHeader />
+      
       <p className="test">{placeDetail.name}</p>
       <p className="test">{placeDetail.distance} mile</p>
       <img src={googleImg} />
+
+      <ReviewList name={123} date={"2022-1-1"} content={"hahaa"} />
+
 
     </div>
   );
