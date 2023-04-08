@@ -1,3 +1,10 @@
+<!--
+ * @Author: Jiayu Ran
+ * @Date: 2023-03-08 16:10:09
+ * @LastEditors: Jiayu Ran
+ * @LastEditTime: 2023-04-08 13:05:11
+ * @Description: Description
+-->
 # ncl-attractions-fe
 
 ## React learning
@@ -11,11 +18,11 @@ npm install
 npm start
 ```
 
-## Coding standard
+## How to run test
 
-* Use 2 spaces instead of tab
-* The first letter of the component file and function name must be capitalized
-* Each sentence must end with a semicolon
+```
+npm run test
+```
 
 ## File tree
 
@@ -35,6 +42,7 @@ npm start
     │       ├── Index.js
     │       ├── List.js
     │       ├── Map.js
+    │       ├── Map.test.js         (test for Map components)
     │       └── PlaceItem.js
     ├── config.js                   (google map configuration, such as API_KEY)
     ├── index.js                    (entrance)
