@@ -1,0 +1,42 @@
+.reviewList{
+    padding: 15px 0 25px 0; 
+
+}
+.review{
+    display: flex;
+    justify-content: space-between;
+
+}
+.item{
+    padding-top: 20px; 
+}
+.reviewHead{
+    font-size: 18px;
+    font-weight:bold;
+}
+.writeReview{
+    font-size: 13px;
+    color: gray;
+    text-decoration: underline;
+}
+.username{
+    font-size: 13px;
+}
+.rate{
+    padding-top: 5px;
+    font-size: 13px;
+    color: #FFD700; 
+}
+.rate:before {
+    content: "\2605";
+  }
+.content{
+    padding-top: 5px; 
+    padding-left: 20px;
+    font-size: 13px;
+}
+.date{
+    padding-top: 5px; 
+    padding-bottom: 15px;
+    font-size: 10px;
+}

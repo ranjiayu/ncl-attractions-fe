@@ -1,0 +1,16 @@
+/* .test {
+    color: red;
+} */
+.backgroundAll{
+    background-color: rgba(119,183,238,0.1);  
+}
+
+.background {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  
+  

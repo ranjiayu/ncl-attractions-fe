@@ -1,0 +1,39 @@
+.info_detail{
+    padding-top: 15px; 
+}
+.placeType{
+font-size: 13px;
+text-align: left;
+
+}
+.detailName{
+    padding-top: 7px;
+    font-size: 20px;
+    font-weight:bold;
+
+}
+.distancePic {
+    padding-top: 9px;
+    display: flex;
+}
+.walkTimePic {
+    padding: 3px 0;
+    display: flex;
+}
+.distance{
+    font-size: 13px;
+    margin-Left: 3px;
+}
+.walkTime{
+    font-size: 13px;
+    margin-Left: 3px;
+}
+.openTime{
+    display: flex;
+}
+.openState{
+    
+    font-size: 13px;
+    color: rgb(255,94,3,80);
+    margin-right: 3px;
+}
