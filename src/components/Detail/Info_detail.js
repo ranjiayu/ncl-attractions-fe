@@ -1,3 +1,11 @@
+/*
+ * @Author: Jiayu Ran
+ * @Date: 2023-03-08 16:30:16
+ * @LastEditors: Jiayu Ran
+ * @LastEditTime: 2023-04-20 14:06:54
+ * @Description: The place detail page
+ */
+
 import React from "react";
 import locPic from "../../images/location.png";
 import walkPic from "../../images/walk.png";
@@ -24,7 +32,7 @@ function Info_detail(props) {
                     <img src={locPic} />
                 </div>
                 <p className="distance">
-                    {distance}
+                    {distance} miles
                 </p>
             </div>
             <div className="walkTimePic">
@@ -32,7 +40,7 @@ function Info_detail(props) {
                     <img src={walkPic} />
                 </div>
                 <p className="walkTime">
-                    {walkTime}
+                    {walkTime} min
                 </p>
             </div>
             <div className="openTime">
