@@ -2,7 +2,7 @@
  * @Author: Jiayu Ran
  * @Date: 2023-03-08 18:09:13
  * @LastEditors: Jiayu Ran
- * @LastEditTime: 2023-03-27 01:07:10
+ * @LastEditTime: 2023-04-23 00:19:33
  * @Description: Define the http api uri and methods
  */
 
@@ -14,7 +14,12 @@ const getApi = {
   'getDetails': '/place/getDetails',
 };
 
+const postApi = {
+  'postComment': '/comments/',
+};
+
 export default {
   host: host,
-  getApi: getApi
+  getApi: getApi,
+  postApi: postApi,
 };

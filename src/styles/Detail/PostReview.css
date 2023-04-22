@@ -1,0 +1,35 @@
+.post-review-inline {
+  /* width: 80%; */
+  display: flex;
+  width: 360px;
+  margin:0 auto;
+  padding: 26px;
+  justify-content: flex-start;
+  align-items: flex-start;
+  flex-direction: column;
+}
+
+.post-review-title {
+  font-weight: 600;
+  font-size: 17px;
+  line-height: 21px;
+}
+
+.post-review-textarea {
+  display: block;
+  width: 100%;
+  border: none;
+  background: #D9D9D961;
+  margin-top: 22px;
+  padding: 5px;
+}
+
+.post-review-input {
+  display: block;
+  width: 100%;
+  border: none;
+  background: #D9D9D961;
+  margin-top: 22px;
+  height: 47px;
+  padding: 5px;
+}
