@@ -2,7 +2,7 @@
  * @Author: Jiayu Ran
  * @Date: 2023-04-08 14:47:38
  * @LastEditors: Jiayu Ran
- * @LastEditTime: 2023-04-23 16:22:08
+ * @LastEditTime: 2023-04-23 17:06:41
  * @Description: Description
  */
 import { Link } from 'react-router-dom';
@@ -14,7 +14,7 @@ function ReviewList(props) {
   // let rate = props.rate;
   // let date = props.date;
   // let content = props.content;
-  const review = props.review;
+  const review = props.review || [];
   console.log(review);
   const placeDetail = props.placeDetail;
   const urlParams = useParams();

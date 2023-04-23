@@ -2,7 +2,7 @@
  * @Author: Jiayu Ran
  * @Date: 2023-04-20 09:54:17
  * @LastEditors: Jiayu Ran
- * @LastEditTime: 2023-04-23 16:28:18
+ * @LastEditTime: 2023-04-23 17:08:30
  * @Description: Description
  */
 
@@ -80,8 +80,10 @@ function DetailIndex() {
       .then(data => {
         console.log(`Get comments of place_id = ${urlParams.id}:`);
         console.log(data);
+        if (data.httpStatusCode !== "NOT_FOUND" && data.length) {
+          setReviews(data);
+        }
         // update the state with the new reviews
-        setReviews(data);
       })
       .catch(error => {
         console.error('Error fetching reviews:', error);

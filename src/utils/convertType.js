@@ -2,7 +2,7 @@
  * @Author: Jiayu Ran
  * @Date: 2023-04-03 15:37:23
  * @LastEditors: Jiayu Ran
- * @LastEditTime: 2023-04-03 15:48:21
+ * @LastEditTime: 2023-04-23 16:51:27
  * @Description: Description
  */
 
@@ -14,7 +14,8 @@ function convertType(types) {
   const typeMap = {
     'library': 'Library',
     'museum': 'Museum',
-    'point_of_interest': 'History Building',
+    // 'point_of_interest': 'History Building',
+    'history_building': 'History Building',
     'park': 'Park',
     'locality': 'Locality',
     'university': 'University',
@@ -24,7 +25,7 @@ function convertType(types) {
     return 'Unknown';
   }
 
-  let knownTypes = ['library', 'park', 'museum', 'point_of_interest', 'university', 'locality'];
+  let knownTypes = ['library', 'park', 'museum', 'university', 'locality', 'history_building'];
   for (let i = 0; i < typeArray.length; i ++) {
     if (knownTypes.indexOf(typeArray[i]) > -1) {
       return typeMap[typeArray[i]];
