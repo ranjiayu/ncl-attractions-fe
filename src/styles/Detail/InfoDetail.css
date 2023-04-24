@@ -1,12 +1,12 @@
-.info_detail{
+.info_detail {
     padding-top: 15px; 
 }
-.placeType{
+.placeType {
 font-size: 13px;
 text-align: left;
 
 }
-.detailName{
+.detailName {
     padding-top: 7px;
     font-size: 20px;
     font-weight:bold;
@@ -20,19 +20,18 @@ text-align: left;
     padding: 3px 0;
     display: flex;
 }
-.distance{
+.distance {
     font-size: 13px;
     margin-Left: 3px;
 }
-.walkTime{
+.walkTime {
     font-size: 13px;
     margin-Left: 3px;
 }
-.openTime{
+.openTime {
     display: flex;
 }
-.openState{
-    
+.openState {
     font-size: 13px;
     color: rgb(255,94,3,80);
     margin-right: 3px;

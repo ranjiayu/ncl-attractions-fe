@@ -2,7 +2,7 @@
  * @Author: Jiayu Ran
  * @Date: 2023-04-20 09:54:17
  * @LastEditors: Jiayu Ran
- * @LastEditTime: 2023-04-24 10:44:09
+ * @LastEditTime: 2023-04-24 16:33:59
  * @Description: Description
  */
 
@@ -57,8 +57,9 @@ function DetailIndex() {
         let lng = data.geometry.location.lng;
         let distance = calDistance(lat, lng, p.lat, p.lng).toFixed(2);
         let type = convertType(data.types.join(","));
-        let walkTime = (distance / 15).toFixed(2);
+        let walkTime = parseInt(distance * 18, 10);
         let isOpen = data.opening_hours && data.opening_hours.open_now;
+        let openingHours = data.opening_hours;
 
         // Update the placeDetail state with the new details
         setPlaceDetail({
@@ -68,6 +69,7 @@ function DetailIndex() {
           walkTime: walkTime,
           openState: isOpen,
           photos: data.photos || [],
+          openingHours: openingHours,
         });
       })
       .catch(error => {
@@ -105,6 +107,7 @@ function DetailIndex() {
               distance={placeDetail.distance}
               walkTime={placeDetail.walkTime}
               openState={placeDetail.openState} 
+              openingHours={placeDetail.openingHours}
             />
             <ReviewList review={reviews} placeDetail={placeDetail} />
           </div>

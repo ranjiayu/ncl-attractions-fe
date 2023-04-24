@@ -2,16 +2,17 @@
  * @Author: Jiayu Ran
  * @Date: 2023-04-08 14:47:38
  * @LastEditors: Jiayu Ran
- * @LastEditTime: 2023-04-24 10:45:13
+ * @LastEditTime: 2023-04-24 16:52:20
  * @Description: Description
  */
 import { Link } from 'react-router-dom';
 import "../../styles/Detail/ReviewList.css";
 import { useParams } from 'react-router-dom';
+import formatTime from '../../utils/formatTime';
+import {FaStar, FaRegStar} from "react-icons/fa";
 
 function ReviewList(props) {
   const review = props.review || [];
-  console.log(review);
   const placeDetail = props.placeDetail;
   const urlParams = useParams();
 
@@ -19,9 +20,9 @@ function ReviewList(props) {
     const stars = [];
     for (let i = 0; i < 5; i++) {
       if (i < rating) {
-        stars.push(<i key={i} className="fas fa-star"></i>);
+        stars.push(<FaStar key={i} />);
       } else {
-        stars.push(<i key={i} className="far fa-star"></i>);
+        stars.push(<FaRegStar key={i} />);
       }
     }
     return stars;
@@ -45,17 +46,27 @@ function ReviewList(props) {
             {item.name}
           </p>
           <p className="rate">
-            {rateStars(item.rating)}
+            {rateStars(item.rating).map((item) => {
+              return item;
+            })}
+
           </p>
           <p className="content">
             {item.commentText}
           </p>
           <p className="date">
-            {item.commentDateTime}
+            {formatTime(item.commentDateTime)}
           </p>
           <hr />
         </div>
       ))}
+
+      {review.length === 0
+        ? 
+        <div className="noCommentDiv">No comments</div>
+        :
+        <div></div>
+      }
     </div>
   );
 }

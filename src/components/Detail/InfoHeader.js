@@ -2,14 +2,11 @@
  * @Author: Jiayu Ran
  * @Date: 2023-04-20 09:54:17
  * @LastEditors: Jiayu Ran
- * @LastEditTime: 2023-04-24 10:36:53
+ * @LastEditTime: 2023-04-24 15:55:41
  * @Description: Description
  */
 import React, { useState } from "react";
-import backButton from "../../images/back.png";
-import shareButton from "../../images/share.png";
-import emailIcon from "../../images/email.png";
-import linkIcon from "../../images/copyLink.png";
+import { FaTwitter, FaLink, FaShareAlt, FaChevronLeft } from "react-icons/fa";
 import "../../styles/Detail/InfoHeader.css";
 
 function InfoHeader(props) {
@@ -17,7 +14,11 @@ function InfoHeader(props) {
     //share function
     const [showShareBox, setShowShareBox] = useState(false);
     function handleShareClick() {
-        setShowShareBox(true);
+        if (showShareBox === true) {
+            setShowShareBox(false);
+        } else {
+            setShowShareBox(true);
+        }
     }
     function handleCloseClick() {
         setShowShareBox(false);
@@ -25,29 +26,43 @@ function InfoHeader(props) {
     function handleBack() {
         window.history.back();
     }
+    // copy link to paste board
+    function copyLink() {
+        let url = window.location.href;
+        navigator.clipboard.writeText(url);
+        alert("Link copied!");
+        setShowShareBox(false);
+    }
+    // share by email
+    function shareToTwitter() {
+        let url = "https://twitter.com/intent/tweet?text=";
+        let text = `This is a interesting place called ${placeName}, here is link: ${window.location.href}`;
+        url += text;
+        window.open(url);
+    }
     return (
         <div>
             <div className="info_header">
             
             <div className="backBtn" onClick={handleBack}>
-                <img src={backButton} />
+                <FaChevronLeft style={{fontSize: "22px", color: "#919191"}} />
             </div>
             <div className="placeName">
                 {placeName}
             </div>
             <div className="shareBtn" onClick={handleShareClick}>
-                <img src={shareButton} />
+                <FaShareAlt style={{fontSize: "22px", color: "#919191"}} />
             </div>
             </div>
             {showShareBox && (
                 <div className="shareBox">
-                    <div>
-                        <img src={emailIcon} alt="share" className="emailIcon" />
-                        <span>Email</span>
+                    <div onClick={shareToTwitter}>
+                        <FaTwitter className="emailIcon" />
+                        <span className="iconSpan">Twitter</span>
                     </div>
-                    <div>
-                        <img src={linkIcon} alt="share" className="linkIcon" />
-                        <span>Copy link</span>
+                    <div onClick={copyLink}>
+                        <FaLink className="linkIcon" />
+                        <span className="iconSpan">Copy link</span>
                     </div>
                     <div className="closeBtn" onClick={handleCloseClick}>
                         Close
