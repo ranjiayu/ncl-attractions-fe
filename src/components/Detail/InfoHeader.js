@@ -1,14 +1,18 @@
+/*
+ * @Author: Jiayu Ran
+ * @Date: 2023-04-20 09:54:17
+ * @LastEditors: Jiayu Ran
+ * @LastEditTime: 2023-04-24 10:36:53
+ * @Description: Description
+ */
 import React, { useState } from "react";
-import { Link } from 'react-router-dom';
 import backButton from "../../images/back.png";
 import shareButton from "../../images/share.png";
 import emailIcon from "../../images/email.png";
 import linkIcon from "../../images/copyLink.png";
-import "../../styles/Detail/Info_header.css";
+import "../../styles/Detail/InfoHeader.css";
 
-function Info_header(props) {
-
-
+function InfoHeader(props) {
     let placeName = props.placeName;
     //share function
     const [showShareBox, setShowShareBox] = useState(false);
@@ -18,15 +22,15 @@ function Info_header(props) {
     function handleCloseClick() {
         setShowShareBox(false);
     }
+    function handleBack() {
+        window.history.back();
+    }
     return (
         <div>
             <div className="info_header">
             
-            <div className="backBtn">
-                <Link to="../Result/List.js">
-                    <img src={backButton} />
-                </Link>
-                {/* <img src={backButton} onClick={handleBack} /> */}
+            <div className="backBtn" onClick={handleBack}>
+                <img src={backButton} />
             </div>
             <div className="placeName">
                 {placeName}
@@ -53,4 +57,4 @@ function Info_header(props) {
         </div>
     )
 }
-export default Info_header;
+export default InfoHeader;

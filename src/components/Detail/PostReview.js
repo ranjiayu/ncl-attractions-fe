@@ -2,13 +2,13 @@
  * @Author: Jiayu Ran
  * @Date: 2023-04-21 16:54:16
  * @LastEditors: Jiayu Ran
- * @LastEditTime: 2023-04-23 00:21:01
+ * @LastEditTime: 2023-04-24 10:42:15
  * @Description: Description
  */
 import React, { useState, useEffect } from 'react';
 import { useParams, useSearchParams } from 'react-router-dom';
 import AppHeader from '../Common/Header';
-import Info_header from "./Info_header";
+import InfoHeader from "./InfoHeader";
 import Star from "./Star";
 import Button from "../Common/Button";
 import "../../styles/Detail/PostReview.css";
@@ -83,7 +83,7 @@ function PostReview() {
     <div>
       <AppHeader />
 
-      <Info_header placeName={placeName} />
+      <InfoHeader placeName={placeName} />
 
       <div className="post-review-inline">
         <p className="post-review-title">Click stars to rate</p>

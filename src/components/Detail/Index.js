@@ -2,7 +2,7 @@
  * @Author: Jiayu Ran
  * @Date: 2023-04-20 09:54:17
  * @LastEditors: Jiayu Ran
- * @LastEditTime: 2023-04-23 17:08:30
+ * @LastEditTime: 2023-04-24 10:44:09
  * @Description: Description
  */
 
@@ -11,10 +11,10 @@ import { useParams } from 'react-router-dom';
 // Components
 import AppHeader from "../Common/Header";
 import ReviewList from "./ReviewList";
-import Info_header from "./Info_header"
+import InfoHeader from "./InfoHeader"
 // import Route from "./Route"
-import Carousel from "./Info_pic";
-import Info_detail from "./Info_detail";
+import InfoPic from "./InfoPic";
+import InfoDetail from "./InfoDetail";
 import api from "../../api";
 // import utils
 import calDistance from '../../utils/calDistance';
@@ -22,7 +22,7 @@ import convertType from '../../utils/convertType';
 
 // CSS
 import "../../styles/Detail/Index.css";
-import "../../styles/Detail/Info_pic.css";
+import "../../styles/Detail/InfoPic.css";
 
 function DetailIndex() {
   // state
@@ -67,6 +67,7 @@ function DetailIndex() {
           distance: distance,
           walkTime: walkTime,
           openState: isOpen,
+          photos: data.photos || [],
         });
       })
       .catch(error => {
@@ -94,11 +95,11 @@ function DetailIndex() {
     <div>
       <AppHeader />
       <div className="backgroundAll">
-        <Info_header placeName={placeDetail.name} />
+        <InfoHeader placeName={placeDetail.name} />
         <div className="background">
           <div className="content">
-            <Carousel />
-            <Info_detail 
+            <InfoPic photos={placeDetail.photos} />
+            <InfoDetail 
               placeType={placeDetail.type}
               placeName={placeDetail.name}
               distance={placeDetail.distance}
@@ -110,19 +111,6 @@ function DetailIndex() {
         </div>
       </div>
     </div>
-    // <div>
-    //   <AppHeader />
-    //   <div className="backgroundAll">
-    //     <Info_header placeName={"placeName"}/>
-    //     <div className="background">
-    //       <div className="content">
-    //         <Carousel />
-    //         <Info_detail placeType={"placeType"} placeName={"placeName"} distance={"4 miles"} walkTime={"15min"} openState={"open now"}/>
-    //         <ReviewList username={123} rate={"5"} date={"2022-1-1"} content={"hahaa"} />
-    //       </div>
-    //     </div>
-    //   </div>
-    // </div>
 
   );
 

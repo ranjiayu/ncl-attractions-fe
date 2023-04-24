@@ -2,7 +2,7 @@
  * @Author: Jiayu Ran
  * @Date: 2023-04-08 14:47:38
  * @LastEditors: Jiayu Ran
- * @LastEditTime: 2023-04-23 17:06:41
+ * @LastEditTime: 2023-04-24 10:45:13
  * @Description: Description
  */
 import { Link } from 'react-router-dom';
@@ -10,10 +10,6 @@ import "../../styles/Detail/ReviewList.css";
 import { useParams } from 'react-router-dom';
 
 function ReviewList(props) {
-  // let username = props.username;
-  // let rate = props.rate;
-  // let date = props.date;
-  // let content = props.content;
   const review = props.review || [];
   console.log(review);
   const placeDetail = props.placeDetail;
@@ -43,21 +39,6 @@ function ReviewList(props) {
           </Link>
         </p>
       </div>
-      {/* <div className="item">
-        <p className="username">
-          {username}
-        </p>
-        <p className="rate">
-          {rate}
-        </p>
-        <p className="content">
-          {content}
-        </p>
-        <p className="date">
-          {date}
-        </p>
-        <hr />
-      </div> */}
       {review.map(item => (
         <div className="item" key={item.id}>
           <p className="username">

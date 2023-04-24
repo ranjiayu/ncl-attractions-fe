@@ -2,7 +2,7 @@
  * @Author: Jiayu Ran
  * @Date: 2023-03-08 16:30:16
  * @LastEditors: Jiayu Ran
- * @LastEditTime: 2023-04-20 14:06:54
+ * @LastEditTime: 2023-04-24 10:36:23
  * @Description: The place detail page
  */
 
@@ -10,9 +10,9 @@ import React from "react";
 import locPic from "../../images/location.png";
 import walkPic from "../../images/walk.png";
 import openDetail from "../../images/openDetail.png";
-import "../../styles/Detail/Info_detail.css";
+import "../../styles/Detail/InfoDetail.css";
 
-function Info_detail(props) {
+function InfoDetail(props) {
     let placeType = props.placeType;
     let placeName = props.placeName;
     let distance = props.distance;
@@ -54,4 +54,4 @@ function Info_detail(props) {
         </div>
     )
 }
-export default Info_detail;
+export default InfoDetail;
