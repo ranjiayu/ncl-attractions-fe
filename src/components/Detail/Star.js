@@ -2,8 +2,8 @@
  * @Author: Jiayu Ran
  * @Date: 2023-04-22 12:16:56
  * @LastEditors: Jiayu Ran
- * @LastEditTime: 2023-04-22 13:07:59
- * @Description: Description
+ * @LastEditTime: 2023-04-26 09:38:52
+ * @Description: Rating presents by stars
  */
 import { useState } from 'react';
 import {FaStar, FaRegStar} from 'react-icons/fa';

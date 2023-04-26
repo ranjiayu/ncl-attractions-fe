@@ -2,7 +2,7 @@
  * @Author: Jiayu Ran
  * @Date: 2023-04-08 14:47:38
  * @LastEditors: Jiayu Ran
- * @LastEditTime: 2023-04-24 16:52:20
+ * @LastEditTime: 2023-04-26 09:38:23
  * @Description: Description
  */
 import { Link } from 'react-router-dom';
@@ -16,6 +16,11 @@ function ReviewList(props) {
   const placeDetail = props.placeDetail;
   const urlParams = useParams();
 
+  /**
+   * Return star elements
+   * @param {Number} rating 
+   * @returns Element[]
+   */
   function rateStars(rating) {
     const stars = [];
     for (let i = 0; i < 5; i++) {

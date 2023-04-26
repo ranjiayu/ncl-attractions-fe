@@ -2,8 +2,8 @@
  * @Author: Jiayu Ran
  * @Date: 2023-04-20 09:54:17
  * @LastEditors: Jiayu Ran
- * @LastEditTime: 2023-04-24 16:33:59
- * @Description: Description
+ * @LastEditTime: 2023-04-26 09:34:59
+ * @Description: The index page of place detail
  */
 
 import React, { useState, useEffect } from 'react';
@@ -35,7 +35,6 @@ function DetailIndex() {
   const [reviews, setReviews] = useState([]);
   // get placeID from url
   const urlParams = useParams();
-
 
   useEffect(() => {
 

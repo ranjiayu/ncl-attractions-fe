@@ -1,42 +1,49 @@
-.reviewList{
-    padding: 15px 0 25px 0; 
+.reviewList {
+  padding: 15px 0 25px 0;
+}
 
+.review {
+  display: flex;
+  justify-content: space-between;
 }
-.review{
-    display: flex;
-    justify-content: space-between;
 
+.item {
+  padding-top: 20px;
 }
-.item{
-    padding-top: 20px; 
+
+.reviewHead {
+  font-size: 18px;
+  font-weight: bold;
 }
-.reviewHead{
-    font-size: 18px;
-    font-weight:bold;
+
+.writeReview>a {
+  font-size: 13px;
+  color: gray;
+  text-decoration: underline;
 }
-.writeReview > a{
-    font-size: 13px;
-    color: gray;
-    text-decoration: underline;
+
+.username {
+  font-size: 13px;
 }
-.username{
-    font-size: 13px;
+
+.rate {
+  padding-top: 5px;
+  font-size: 13px;
+  color: #FFD700;
 }
-.rate{
-    padding-top: 5px;
-    font-size: 13px;
-    color: #FFD700; 
+
+.content {
+  padding-top: 5px;
+  /* padding-left: 20px; */
+  font-size: 13px;
 }
-.content{
-    padding-top: 5px; 
-    /* padding-left: 20px; */
-    font-size: 13px;
+
+.date {
+  padding-top: 5px;
+  padding-bottom: 15px;
+  font-size: 10px;
 }
-.date{
-    padding-top: 5px; 
-    padding-bottom: 15px;
-    font-size: 10px;
-}
+
 .noCommentDiv {
-    margin-top: 20px;
+  margin-top: 20px;
 }

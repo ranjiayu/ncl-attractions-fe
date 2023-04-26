@@ -2,8 +2,8 @@
  * @Author: Jiayu Ran
  * @Date: 2023-04-20 09:54:17
  * @LastEditors: Jiayu Ran
- * @LastEditTime: 2023-04-24 15:55:41
- * @Description: Description
+ * @LastEditTime: 2023-04-26 09:36:28
+ * @Description: Detail page header
  */
 import React, { useState } from "react";
 import { FaTwitter, FaLink, FaShareAlt, FaChevronLeft } from "react-icons/fa";
@@ -13,6 +13,7 @@ function InfoHeader(props) {
     let placeName = props.placeName;
     //share function
     const [showShareBox, setShowShareBox] = useState(false);
+    // toggle share box
     function handleShareClick() {
         if (showShareBox === true) {
             setShowShareBox(false);
@@ -23,6 +24,7 @@ function InfoHeader(props) {
     function handleCloseClick() {
         setShowShareBox(false);
     }
+    // back to previous page
     function handleBack() {
         window.history.back();
     }

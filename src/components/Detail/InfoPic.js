@@ -2,8 +2,8 @@
  * @Author: Jiayu Ran
  * @Date: 2023-04-20 09:54:17
  * @LastEditors: Jiayu Ran
- * @LastEditTime: 2023-04-24 10:44:26
- * @Description: Description
+ * @LastEditTime: 2023-04-26 09:37:00
+ * @Description: Detail page picture slider
  */
 import React, { useState } from "react";
 import config from '../../config';
@@ -15,6 +15,7 @@ import "../../styles/Detail/InfoPic.css";
 
 const InfoPic = (props) => {
     let images = [];
+    // get all photos' references
     const photos = props.photos;
     if (photos && photos.length) {
         for (let i = 0; i < photos.length; i ++) {

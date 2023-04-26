@@ -2,7 +2,7 @@
  * @Author: Jiayu Ran
  * @Date: 2023-04-21 16:54:16
  * @LastEditors: Jiayu Ran
- * @LastEditTime: 2023-04-24 10:42:15
+ * @LastEditTime: 2023-04-26 09:37:26
  * @Description: Description
  */
 import React, { useState, useEffect } from 'react';
@@ -38,6 +38,7 @@ function PostReview() {
   }
 
   function handleSubmit() {
+    // validate user's input
     if (rate < 1 || userName === "" || content === "" || !urlParams.id) {
       alert("Please check input!");
       return;
@@ -67,11 +68,6 @@ function PostReview() {
       }
     });
   }
-
-  // function handleCancel() {
-  //   setUserName("");
-  //   setContent("");
-  // }
 
   function handleRateChange(value) {
     setRate(value);

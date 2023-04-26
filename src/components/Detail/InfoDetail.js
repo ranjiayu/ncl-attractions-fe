@@ -2,8 +2,8 @@
  * @Author: Jiayu Ran
  * @Date: 2023-03-08 16:30:16
  * @LastEditors: Jiayu Ran
- * @LastEditTime: 2023-04-24 16:49:17
- * @Description: The place detail page
+ * @LastEditTime: 2023-04-26 09:35:48
+ * @Description: Place detail component
  */
 
 import React, { useState } from "react";
@@ -12,6 +12,7 @@ import { FaMapMarkerAlt, FaWalking, FaAngleDown } from "react-icons/fa";
 import "../../styles/Detail/InfoDetail.css";
 
 function InfoDetail(props) {
+    // props from Index  component
     let placeType = props.placeType;
     let placeName = props.placeName;
     let distance = props.distance;
@@ -20,6 +21,7 @@ function InfoDetail(props) {
     let openingHours = props.openingHours;
     const [showOpeningHours, setShowOpeningHours] = useState(false);
 
+    // toggle opening times
     function handleOpenDetail() {
         if (showOpeningHours === true) {
             setShowOpeningHours(false);

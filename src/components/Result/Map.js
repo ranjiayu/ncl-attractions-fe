@@ -2,7 +2,7 @@
  * @Author: Jiayu Ran
  * @Date: 2023-03-08 16:28:32
  * @LastEditors: Jiayu Ran
- * @LastEditTime: 2023-03-27 16:50:54
+ * @LastEditTime: 2023-04-26 09:41:21
  * @Description: Map component, which receives a location paramter as the map center
  */
 import { isValidElement, Children, cloneElement } from 'react';
@@ -17,7 +17,6 @@ function MyMap(props) {
 
   const ref = useRef(null);
   const [map, setMap] = useState();
-  // test
   let center = {};
   if (position) {
     center = {

@@ -1,116 +1,33 @@
 .carousel {
-    padding-top: 10px;
-    position: relative;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  
-  .pics-container {
-    position: relative;
-    display: inline-block;
-  }
-  
-  .pics {
-    display: block;
-    margin: 0 auto;
-    width: 312px;
-    height: 169px;
-  }
-  
-  .leftBtn {
-    position: absolute;
-    left: 0;
-    top: 50%;
-    transform: translateY(-50%);
-  }
-  
-  .rightBtn {
-    position: absolute;
-    right: 0;
-    top: 50%;
-    transform: translateY(-50%);
-  }
-  
-  
+  padding-top: 10px;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
-/* .carousel {
-    position: relative;
-    display: inline-block;
-  }
-  
-  .leftBtn {
-    position: absolute;
-    left: 0;
-    top: 50%;
-    transform: translateY(-50%);
-  }
-  
-  .rightBtn {
-    position: absolute;
-    right: 0;
-    top: 50%;
-    transform: translateY(-50%);
-  }
-  
-  .pics {
-    
-    display: inline-block;
-    margin: 0 auto;
-    width: 312px;
-    height: 169px;
-  }
-   */
-
-/* .carousel {
-    display: flex;
-    justify-content: space-between;
-    position: relative;
-    padding-top: 22.5px;
-    text-align: center;
-    
+.pics-container {
+  position: relative;
+  display: inline-block;
 }
 
 .pics {
-    width: 312px;
-    height: 169px;
-    overflow: hidden;
-    position: relative;
-    display: inline-block;
+  display: block;
+  margin: 0 auto;
+  width: 312px;
+  height: 169px;
 }
 
-/* .carousel{
-    width: 100%;
-    overflow: hidden;
-    position: relative;
-} */
-
-/* .leftBtn {
-    position: absolute;
-    left: 0;
-    top: 50%;
-    transform: translateY(-50%);
-    /* position: absolute; */
-    /* left: 0;
-    top: 0;
-    bottom: 0;
-    margin: auto;
-    width: 30px;
-    height: 30px; */
-    /* background: #fff; */
-/* }
+.leftBtn {
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+}
 
 .rightBtn {
-    position: absolute;
-    right: 0;
-    top: 50%;
-    transform: translateY(-50%);
-    /* position: absolute;
-    right: 0;
-    top: 0;
-    bottom: 0;
-    margin: auto;
-    width: 30px;
-    height: 30px;
-    background: #fff; 
-}  */
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+}
