@@ -44,3 +44,8 @@
     color: rgb(255, 94, 3, 80);
     margin-right: 3px;
 }
+
+.iconStyle {
+    font-size: "16px";
+    color: "#919191"
+}

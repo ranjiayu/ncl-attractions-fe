@@ -2,7 +2,7 @@
  * @Author: Jiayu Ran
  * @Date: 2023-03-08 18:09:13
  * @LastEditors: Jiayu Ran
- * @LastEditTime: 2023-04-26 09:42:54
+ * @LastEditTime: 2023-04-26 16:06:07
  * @Description: Define the http api uri and methods
  */
 
@@ -14,7 +14,8 @@ const getApi = {
   'getNearbyAttractions': '/place/getNearbyAttractions',
   'getAutoComplete': '/place/getAutoComplete',
   'getDetails': '/place/getDetails',
-  'getComments': '/comments/'
+  'getComments': '/comments/',
+  'getPlaceExtraInfo': '/place/getExtraInfo',
 };
 
 // All post action URLs

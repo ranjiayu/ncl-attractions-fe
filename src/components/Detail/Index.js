@@ -2,7 +2,7 @@
  * @Author: Jiayu Ran
  * @Date: 2023-04-20 09:54:17
  * @LastEditors: Jiayu Ran
- * @LastEditTime: 2023-04-26 09:34:59
+ * @LastEditTime: 2023-04-26 19:52:25
  * @Description: The index page of place detail
  */
 
@@ -33,6 +33,7 @@ function DetailIndex() {
     openState: ""
   });
   const [reviews, setReviews] = useState([]);
+  const [extraInfo, setExtraInfo] = useState({});
   // get placeID from url
   const urlParams = useParams();
 
@@ -76,6 +77,19 @@ function DetailIndex() {
       });
     });
 
+    // get extra info of the place
+    fetch(api.host + api.getApi['getPlaceExtraInfo'] + '?placeID=' + urlParams.id)
+      .then((response) => response.json())
+      .then(data => {
+        console.log(`Get place extra info of place_id = ${urlParams.id}`);
+        console.log(data);
+        let extraInfo = {};
+        // if there is data
+        if (data.locationId) {
+          setExtraInfo(data);
+        }
+      })
+
     // make the fetch request to get the reviews for the new place
     fetch(api.host + api.getApi['getComments'] + urlParams.id)
       .then(response => response.json())
@@ -90,6 +104,8 @@ function DetailIndex() {
       .catch(error => {
         console.error('Error fetching reviews:', error);
       });
+
+
   }, []);
 
   return (
@@ -106,7 +122,8 @@ function DetailIndex() {
               distance={placeDetail.distance}
               walkTime={placeDetail.walkTime}
               openState={placeDetail.openState} 
-              openingHours={placeDetail.openingHours}
+              openingHours={placeDetail.openingHours} 
+              extraInfo={extraInfo}
             />
             <ReviewList review={reviews} placeDetail={placeDetail} />
           </div>
