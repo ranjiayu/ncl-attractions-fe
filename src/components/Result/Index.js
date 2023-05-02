@@ -2,7 +2,7 @@
  * @Author: Jiayu Ran
  * @Date: 2023-03-08 16:29:10
  * @LastEditors: Jiayu Ran
- * @LastEditTime: 2023-04-07 15:52:38
+ * @LastEditTime: 2023-05-02 09:37:07
  * @Description: Result index page
  */
 import { useState, useEffect } from 'react';
@@ -105,6 +105,7 @@ function ResultIndex() {
       let tmp = results[i].geometry.location;
       tmp.title = results[i].name;
       tmp.label = i + "";
+      tmp.placeID = results[i].placeID;
       positionData.push(tmp);
     }
     setGeometryData(positionData);
