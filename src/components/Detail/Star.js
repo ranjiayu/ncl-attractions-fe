@@ -29,9 +29,9 @@ function Star(props) {
     <div>
       {rate.map((item, idx) => {
         if (item > 0) {
-          return <FaStar key={idx} onClick={() => handleOnClick(idx)} />;
+          return <FaStar data-testid="FaStar" key={idx} onClick={() => handleOnClick(idx)} />;
         }
-        return <FaRegStar key={idx} onClick={() => handleOnClick(idx)} />
+        return <FaRegStar data-testid="FaRegStar" key={idx} onClick={() => handleOnClick(idx)} />
       })}
     </div>
 

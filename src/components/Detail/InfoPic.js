@@ -34,8 +34,8 @@ const InfoPic = (props) => {
     <div className="carousel">
       <div className="pics-container">
         <img src={images[index]} alt="" className="pics" />
-        <img src={leftButton} className="leftBtn" onClick={handlePrev} />
-        <img src={rightButton} className="rightBtn" onClick={handleNext} />
+        <img data-testid="prev-button" src={leftButton} className="leftBtn" onClick={handlePrev} />
+        <img data-testid="next-button" src={rightButton} className="rightBtn" onClick={handleNext} />
       </div>
     </div>
   );

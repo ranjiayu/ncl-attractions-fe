@@ -62,7 +62,7 @@ function InfoDetail(props) {
         <p><FaMoneyBillAlt className="iconStyle" /> £{extraInfo.admissionFee ? extraInfo.admissionFee : "?"}</p>
       </div>
 
-      <div className="openTime" onClick={handleOpenDetail}>
+      <div data-testid="open-time" className="openTime" onClick={handleOpenDetail}>
         <p className="openState">
           {openState ? "Open now" : "Closed"}
         </p>

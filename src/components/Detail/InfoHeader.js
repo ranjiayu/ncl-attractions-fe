@@ -46,27 +46,27 @@ function InfoHeader(props) {
     <div>
       <div className="info_header">
 
-        <div className="backBtn" onClick={handleBack}>
+        <div data-testid="back-btn" className="backBtn" onClick={handleBack}>
           <FaChevronLeft style={{ fontSize: "22px", color: "#919191" }} />
         </div>
         <div className="placeName">
           {placeName}
         </div>
-        <div className="shareBtn" onClick={handleShareClick}>
+        <div data-testid="share-btn" className="shareBtn" onClick={handleShareClick}>
           <FaShareAlt style={{ fontSize: "22px", color: "#919191" }} />
         </div>
       </div>
       {showShareBox && (
-        <div className="shareBox">
-          <div onClick={shareToTwitter}>
+        <div data-testid="share-box" className="shareBox">
+          <div data-testid="twitter-btn" onClick={shareToTwitter}>
             <FaTwitter className="emailIcon" />
             <span className="iconSpan">Twitter</span>
           </div>
-          <div onClick={copyLink}>
+          <div data-testid="copy-link-btn" onClick={copyLink}>
             <FaLink className="linkIcon" />
             <span className="iconSpan">Copy link</span>
           </div>
-          <div className="closeBtn" onClick={handleCloseClick}>
+          <div data-testid="close-btn" className="closeBtn" onClick={handleCloseClick}>
             Close
           </div>
         </div>
