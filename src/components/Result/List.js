@@ -3,7 +3,7 @@
  * @Date: 2023-03-08 16:28:27
  * @LastEditors: Jiayu Ran
  * @LastEditTime: 2023-04-07 15:03:07
- * @Description: Places list, which is used in Home page 
+ * @Description: Places list, which is used in Home page
  * and result page.
  */
 
@@ -26,7 +26,7 @@ function List(props) {
 
   /**
    * Format the result
-   * @param {Array} result 
+   * @param {Array} result
    */
   function processResult(result) {
     let data = [];
@@ -47,7 +47,7 @@ function List(props) {
   // 1 mile = 1610 meters
   /**
    * Send http request to get nearby places
-   * @param {Object} position 
+   * @param {Object} position
    * @param {Array} placeType optional. ['library', 'park', 'museum', 'point_of_interest']
    */
   function getPlacesByLocation(position, placeType) {
@@ -110,7 +110,7 @@ function List(props) {
 
   if (error && !loading) {
     return (
-      <div>
+      <div data-testid="Error">
         <Error />
       </div>
     );

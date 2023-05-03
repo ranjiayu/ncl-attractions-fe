@@ -28,10 +28,10 @@ function Star(props) {
     return (
       <div style={{color: '#fbbb0d'}}>
           { starArray.map((key, value) => {
-            return <FaStar key={value} />
+            return <FaStar data-testid="FaStar" key={value} />
           }) }
           { outlineStarArray.map((key, value) => {
-            return <FaRegStar key={value} />
+            return <FaRegStar data-testid="FaRegStar" key={value} />
           }) }
       </div>
     );

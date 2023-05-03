@@ -26,7 +26,7 @@ function PlaceItem({item}) {
     picUrl = `https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photo_reference=${item.reference}&key=${config['MAP_API_KEY']}`;
   }
   return (
-    <div className="placeItem" onClick={handleToDetail}>
+    <div data-testid="handleToDetail" className="placeItem" onClick={handleToDetail}>
       <img className="placeItemImg" src={picUrl} alt={item.name} />
       <div className="placeItemInfo">
         <p className="placeTitle">{item.name}</p>
