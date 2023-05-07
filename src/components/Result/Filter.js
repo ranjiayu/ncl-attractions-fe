@@ -2,13 +2,15 @@
  * @Author: Jiayu Ran
  * @Date: 2023-03-14 13:26:46
  * @LastEditors: Jiayu Ran
- * @LastEditTime: 2023-04-26 09:40:30
+ * @LastEditTime: 2023-05-07 23:16:59
  * @Description: Place type filter
  */
 import { useState } from "react";
 import Button from "../Common/Button";
 import "../../styles/Result/Filter.css";
+
 function Filter(props) {
+  // known types
   const allTypes = ['History buildings', 'Museums', 'Libraries', 'Parks'];
   const typeMap = {
     'History buildings': 'history_building',

@@ -2,7 +2,7 @@
  * @Author: Jiayu Ran
  * @Date: 2023-03-08 17:36:41
  * @LastEditors: Jiayu Ran
- * @LastEditTime: 2023-04-03 15:45:41
+ * @LastEditTime: 2023-05-07 23:16:02
  * @Description: Every place item in the list
  */
 
@@ -16,6 +16,9 @@ function PlaceItem({item}) {
 
   const navigate = useNavigate();
 
+  /**
+   * handle click, to detail page
+   */
   function handleToDetail() {
     console.log('To placeID: ' + item.placeID);
     navigate("/place/" + item.placeID);

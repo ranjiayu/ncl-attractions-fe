@@ -2,7 +2,7 @@
  * @Author: Jiayu Ran
  * @Date: 2023-03-16 12:51:46
  * @LastEditors: Jiayu Ran
- * @LastEditTime: 2023-04-07 15:15:29
+ * @LastEditTime: 2023-05-07 23:17:37
  * @Description: Dropdown box, which must be used with <SearchBox />
  */
 import DropdownItem from "./DropdownItem";
@@ -63,6 +63,7 @@ function Dropdown(props) {
       console.log("Got auto complete data: ");
       console.log(resp);
       if (resp && resp.length) {
+        // deal with the respond data
         processPredictionsData(resp);
       }
     });

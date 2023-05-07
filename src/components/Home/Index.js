@@ -2,7 +2,7 @@
  * @Author: Jiayu Ran
  * @Date: 2023-03-08 16:19:47
  * @LastEditors: Jiayu Ran
- * @LastEditTime: 2023-04-07 14:40:51
+ * @LastEditTime: 2023-05-07 23:18:09
  * @Description: Home page
  */
 
@@ -34,7 +34,7 @@ function HomeIndex() {
     });
   }, []);
 
-
+  // when user types something, show selections!
   function handlePlaceNameChange(e) {
     // send autocomplete api after stopping typing for 1.5 seconds
     clearTimeout(timer);

@@ -2,7 +2,7 @@
  * @Author: Jiayu Ran
  * @Date: 2023-03-08 16:29:10
  * @LastEditors: Jiayu Ran
- * @LastEditTime: 2023-05-07 23:00:01
+ * @LastEditTime: 2023-05-07 23:16:34
  * @Description: Result index page
  */
 import { useState, useEffect } from 'react';
@@ -20,6 +20,7 @@ import "../../styles/Result/Index.css";
 
 function ResultIndex() {
 
+  // init states
   const { placeID } = useParams();
   const [placeName, setPlaceName] = useState("");
   const [showFilter, setShowFilter] = useState(false);
@@ -51,6 +52,7 @@ function ResultIndex() {
     })
   }, []);
 
+  // toggle show map
   function handleShowMap() {
     console.log("toggle Map component.");
     if (showMap === false) {
