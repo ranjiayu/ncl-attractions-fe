@@ -2,7 +2,7 @@
  * @Author: Jiayu Ran
  * @Date: 2023-03-08 16:29:10
  * @LastEditors: Jiayu Ran
- * @LastEditTime: 2023-05-02 09:37:07
+ * @LastEditTime: 2023-05-07 23:00:01
  * @Description: Result index page
  */
 import { useState, useEffect } from 'react';
@@ -154,7 +154,7 @@ function ResultIndex() {
 
           </Button>
 
-          <Button type="primary" onClick={handleShowFilter}>
+          <Button type="primary" onClick={handleShowFilter} style={{marginLeft: "5px"}}>
             <FaFilter />
             <span>Filter</span>
           </Button>
